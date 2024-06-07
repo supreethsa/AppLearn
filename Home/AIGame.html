@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>AppLearn</title>
+    <link rel="stylesheet" href="./site.css" />
+    <script defer src="./site.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="google-site-verification" content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8">
+</head>
+<body class="scroll-container">
+    <header class="header" id="navbar">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <!-- Toggler Button for Mobile View -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Company/App Logo or Name -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 80px; width: 250px;">
+                </a>
+
+                <!-- Navigation Links (Centered) -->
+                <div class="navbar-collapse collapse d-sm-flex justify-content-center">
+                    <div class="nav-fonts">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color: white;" href="Index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Games" asp-action="Index" style="color: white;">Games</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index" style="color: white;">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Plans" asp-action="Index" style="color: white;">Plans</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Plans" asp-action="Index" style="color: white;">AI Game</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a class="btn btn-dark btn-lg" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
+                    <a class="btn btn-dark btn-lg" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <svg preserveApectRatio="xMidYMax meet" fill="none" class="scribble">
+            <path id="myPath" style="opacity: 0.75;" d="M1 4C191.518 9.2973 552.715 38.3946 473.359 112.406C447.379 131.514 368.967 175.86 263.159 200.379C198.603 211.73 86.4969 214.114 154.517 132.838C210.412 74.5677 375.816 10.5838 590.267 220.811C804.718 431.038 1121.93 539.566 1235.73 508.702C1349.1 497.351 1463.09 283.289 1294.93 192.932C1126.77 102.575 911.112 213.629 840.203 273.599C752.217 348.011 737.479 433.996 739.368 500.742C741.258 567.488 810.278 704.533 864.923 750.704C928.438 804.37 1076.56 911.769 1288.18 876.353C1499.79 840.936 1415.28 655.177 1251.35 670.037C1127.09 670.037 990.478 820.758 1274.12 897.18C1285.39 901.071 1345.16 911.084 1494 920" stroke="#1F959C" stroke-width="8"/>
+            <circle id="follower" r="5" fill=#9b1f17></circle>
+    </svg>   
+    <section class="AI-Background">
+        <div>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+        </div>
+        <div>
+            <div class="meteor-belt">
+                <div class="meteor" id="meteor1"></div>
+                <div class="meteor" id="meteor2"></div>
+                <div class="meteor" id="meteor3"></div>
+                <div class="meteor" id="meteor4"></div>
+                <div class="meteor" id="meteor5"></div>
+                <div class="meteor" id="meteor6"></div>
+                <div class="meteor" id="meteor7"></div>
+                <div class="meteor" id="meteor8"></div>
+                <div class="meteor" id="meteor9"></div>
+                <div class="meteor" id="meteor10"></div>
+            </div>
+        </div>
+    </section>     
+        
+    <section id="Header Section" style="min-height: 750px;">
+        <div>
+            <div>
+                <div class="AI-h1">
+                    <div class="whiteBackground">
+                        <h1>Customize Your Own Learning</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divideLine"></div>
+    <section id="What You Will Learn">
+        <h1 class="learn">What You Will Learn</h1>
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="overviewVideo1"><h4>Video 1</h4></div>
+            </div>
+            <div class="grid-item">
+                <div class="overviewVideo2"><h4>Video 2</h4></div>
+            </div>
+            <div class="grid-item">
+                <div class="overviewVideo3"><h4>Video 3</h4></div>
+            </div>
+        </div>
+    </section>                     
+    <div class="divideLine"></div>
+    <section id="Introduction">
+        <div class="grid-container2">
+            <div class="whatIsGame">
+                <div><h1>What is AppLearn?</h1></div>
+                <div><h3>AppLearn is a platform where you can create your learning through games.</h3></div>
+            </div>
+            <svg viewBox="0 0 782 751" fill="none" preserveAspectRatio="xMidYMax meet" class="line-container">
+                <path id="rocket" stroke-width="8" d="M0 788.5H200.5C208.833 787.833 226 789 242.5 763.5C247 758.5 257.5 751 273 761.5C275.167 763.167 278.927 769.548 274.5 778C273 780.167 267.9 784.7 259.5 785.5C257 785.833 250 786.3 242 785.5C240.333 785 236.5 783.6 234.5 782C228.167 778.333 215.5 764.5 215.5 738.5C215.333 731.167 218.3 714 231.5 704C235.333 701.167 246.4 695.8 260 697M260 697C262.667 697.167 269 698.2 273 701C273.667 701.5 274.6 703.1 273 705.5C272.667 706.167 271.5 707.5 269.5 707.5C267.333 707.833 262.4 706.2 260 697ZM260 697C258.833 694 256.6 686.6 257 681V674C257.167 668.5 262.4 656.7 282 653.5H293.5C299.667 653.833 312.4 656.3 314 663.5V666.5C313.833 667.5 312.6 669.7 309 670.5C307.333 670.833 303.4 669.6 301 662C300.667 660.167 300.4 655.6 302 652C303.667 647.833 310.5 639.1 324.5 637.5H332.5C335.333 637.667 342.1 638.4 346.5 640C347.5 640.333 349.9 640.8 351.5 640C355 639.833 363.8 633.6 371 610C376 595.167 386.5 561.5 388.5 545.5C389.833 538.333 392.9 522.6 394.5 517C396.5 504.5 400.6 478.6 401 475C402.667 462.5 406.3 431.7 407.5 408.5C408.312 394.485 409.509 371.113 410.048 353M410.048 353C410.393 341.388 410.469 331.938 410 328.5C410 328.167 409.8 327.7 409 328.5C388.833 344.333 347.5 384.2 343.5 417C343.167 403.5 343.5 371.2 347.5 350C352 323.5 364.5 269.9 378.5 267.5C380.167 251.333 384.7 214.7 389.5 197.5C395.167 174.833 408.7 124.4 417.5 104C429.667 70.8333 454.4 4.2 456 3C467.5 33.3333 490.8 96 492 104C498 124.833 523.5 201.5 524.5 244C524.959 263.495 492.167 237.667 481 225C481.833 225.5 471.4 180.3 455 123.5L419 244.5L487 245.5C494.333 254 512.5 270.5 526.5 268.5C535.667 270.833 555.2 303.8 560 417C558.667 404.5 542.1 368.4 486.5 324H466.5C469 327.833 472.8 339.6 468 356C467.167 351.667 464.4 343.3 460 344.5C459 344.833 457.1 346.4 457.5 350C457.333 351 457.5 353.8 459.5 357C460 358.167 461 360.9 461 362.5C461.167 363.5 460.5 366.3 456.5 369.5C455.5 370.333 453.7 372.6 454.5 375C454.833 375.5 455.3 377 454.5 379C454.167 380 453.7 382.1 454.5 382.5C455 383.167 454.7 386 449.5 392C449.167 390.167 448.7 386 449.5 384C449.5 383 448 379.2 442 372C440.333 370 437.6 364.5 440 358.5C441.333 356 443.9 350.8 443.5 350C443.667 349 443.8 346.9 443 346.5C442.667 345.667 441.4 343.9 439 343.5C437.833 343.667 435.9 345.1 437.5 349.5C437.833 350.833 438.1 353.8 436.5 355C435.5 353.667 433.2 348.9 432 340.5C431.833 338.667 432.3 333.3 435.5 326.5H417.5C414.698 332.333 409.286 345.8 410.048 353ZM410.048 353C410.198 357.667 411.5 369 415.5 377C416.167 378.167 417.9 381.7 419.5 386.5C420.167 385.333 421.5 381.8 421.5 377C421.5 376.333 421.3 374.1 420.5 370.5C420 368.333 420.3 363.6 425.5 362C427.667 361.667 432.5 363.2 434.5 372C434.667 372.833 434.2 376.3 431 383.5C428.833 388.333 424.8 399.3 426 404.5C426.167 406.667 427.1 412.7 429.5 419.5C430 420.833 432.7 425.6 439.5 434C441.667 436.667 446 442.7 446 445.5C446.333 447.167 446.8 452.3 446 459.5L452 458C453 456.5 455.3 452.3 456.5 447.5C456.833 446 457.4 441.6 457 436C456.333 433 456.8 424.6 464 415C465.167 413.833 468.1 410.6 470.5 407C471.333 406 472.3 401.9 469.5 393.5C467.667 390.167 464 382 464 376C464.167 372.833 465.6 366.1 470 364.5C471.833 363.667 476.8 364.6 482 375C482.333 375.667 483.5 379.4 485.5 389C486.147 388.294 487.035 386.692 487.93 384M896.5 788C830.333 788 695.6 787.9 686 787.5C676.4 787.1 669.333 783.667 667 782C665 781.6 660.5 777.167 658.5 775L649 766.5C645.4 762.9 638.5 762 635.5 762H626.5C614.1 764 613 768.833 614 771C616.8 778.2 628.833 780.667 634.5 781H647.5C656.3 777.4 660.167 774.5 661 773.5C671.4 765.1 674.667 751.667 675 746V737.5C674.2 728.3 673 723.333 672.5 722C669.3 713.6 665.5 707.833 664 706C660.4 701.6 655.5 698.5 653.5 697.5C645.5 694.3 637.5 693.5 634.5 693.5C620.1 692.3 616.833 697.667 617 700.5C616.6 705.3 620.833 705.833 623 705.5C631.4 702.3 635.833 696.167 637 693.5C640.2 688.3 640 678 639.5 673.5C636.7 657.1 625.667 651.667 620.5 651C598.5 649 592 650.5 591.5 651.5C579.9 654.7 577.333 659.833 577.5 662C577.5 667.6 582.167 668 584.5 667.5C591.7 664.7 593.5 655.333 593.5 651C593.1 641.4 591 636.667 590 635.5C578.4 617.1 564.167 613.5 558.5 614C550.5 614.8 544.833 621 543 624C535.8 632.4 531.667 633.167 530.5 632.5C520.5 628.9 515 622.333 513.5 619.5C506.7 601.9 505 594.833 505 593.5C502.6 589.1 496.667 537.667 494 512.5C492 500.1 490.833 476.667 490.5 466.5C489.7 464.9 489.167 440.5 489 428.5C488.6 427.7 488.167 414.833 488 408.5C488 405.7 488 400 488 397.5L487.93 384M491.5 357C491.667 353.667 491.7 345.5 490.5 339.5M491.5 357C491.806 350.2 490.961 342.5 490.5 339.5M491.5 357C491.241 370.46 489.572 379.063 487.93 384M491.5 357C491.453 363.5 490.674 378 487.93 384M490.5 339.5C489.833 336.667 487.6 330.3 484 327.5C485.877 329.167 489.806 333.9 490.5 339.5Z" stroke="#47B7BE"/>
+            </svg>  
+        </div>
+    </section>
+    <div class="divideLine"></div>
+    <section id="YouTube Section">
+        <div class="youtubeAIVideo">
+            <div class="gameboxLabel"><h1>How to Make Your Own Personal Game</h1></div>
+            <div class="gamebox"><h3>YouTube Video Placeholder</h3></div>
+        </div>
+    </section>
+    <div class="divideLine"></div>
+    <section id="Testimonials">
+        <div class="TestimonialsTitle">
+            <h1>Hear What Our Users Say!</h1>
+        </div>
+        <div class="Reviews">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h2>Tom S.</h3>
+                            <div class="testimonialUnderline"></div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <h5>"AppLearn rocks! A perfect blend of fun and learning."</h5>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2>Lisa C.</h3>
+                            <div class="testimonialUnderline"></div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <h5>"AppLearn has leveled up my coding game. Worth every minute!"</h5>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2>Max W.</h3>
+                            <div class="testimonialUnderline"></div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <h5>"AppLearn's games are fun, it makes learning way more enjoyable!"</h5>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2>Rachel M.</h3>
+                            <div class="testimonialUnderline"></div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <h5>"AppLearn has transformed how I learn! Highly addictive."</h5>
+                    </div>
+                    <div class="swiper-slide">
+                        <h2>Jake B.</h3>
+                            <div class="testimonialUnderline"></div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <h5>"AppLearn keeps things fresh with engaging challeneged. Solid platform"</h5>
+                    </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+        </div>
+    </section>
+    <footer class="footer-distributed border-top " style="background-color: #9b1f17;">
+        <div class="footer-left">
+            <h3><img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 90px; width: 300px;"></h3>
+            <p class="footer-links">
+                <a href="#" class="link-1" id="footer-hover-links">HOME</a>
+                <a>|</a>
+                <a href="#" id="footer-hover-links">BLOG</a>
+                <a>|</a>
+                <a href="#" id="footer-hover-links">PRICING</a>
+                <a>|</a>
+                <a href="#" id="footer-hover-links">ABOUT</a>
+                <a>|</a>
+                <a href="#" id="footer-hover-links">FAQ</a>
+                <a>|</a>
+                <a href="#" id="footer-hover-links">CONTACT</a>
+            </p>
+            <p class="footer-company-name">AppLearn © 2023</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>1234 E West Street</span> Evansville, Indiana</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+1.123.456.7890</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">support@AppLearn.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About AppLearn</span>
+                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
