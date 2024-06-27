@@ -595,7 +595,7 @@ body {
     padding-top: 15vh;
     padding-bottom: 5vh;
     margin-right: 5vw;
-    margin-bottom: 50vh;
+    margin-bottom: 65vh;
 }
 .grid-item{
     color: white;
@@ -1054,32 +1054,46 @@ svg{
     width: 25vw;
     height: 30vh;
     margin-left: 6.25vw;
-    background-color: black;
-    border: 0.5vw solid lightseagreen;
-    text-align: center;
-    border-radius: 20px;
+}
+.overviewVideo1 h4{
+    font-size: 2.5vh !important;
+    font-weight: bold !important;
+    margin-bottom: 25vh !important;
 }
 .overviewVideo2{
     position: absolute;
     width: 25vw;
     height: 30vh;
-    margin-left: 6.25vw;
-    background-color: black;
-    border: 0.5vw solid lightseagreen;
-    text-align: center;
-    border-radius: 20px;
+    margin-left: 6.25vw !important;
+}
+.overviewVideo2 h4{
+    font-size: 2.5vh !important;
+    font-weight: bold !important;
+    padding-bottom: 5vh !important;
 }
 .overviewVideo3{
     position: absolute;
     width: 25vw;
     height: 30vh;
-    margin-left: 6.25vw;
-    background-color: black;
-    border: 0.75vw solid lightseagreen;
-    text-align: center;
-    border-radius: 20px;
+    margin-left: 6.25vw !important;
+    
+}
+.overviewVideo3 h4{
+    font-size: 2.5vh !important;
+    font-weight: bold !important;
+    padding-bottom: 5vh !important;
 }
 .grid-item h4{
     margin-top: 13vh;
     font-size: 2vh;
 }
+.learnImages{
+    width: 45vh;
+    height: 30vh;
+    z-index: 0.49;
+    background-color: black;
+    border: 0.75vw solid lightseagreen;
+    text-align: center;
+    border-radius: 20px;
+}
+
