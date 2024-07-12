@@ -1097,3 +1097,22 @@ svg{
     border-radius: 20px;
 }
 
+.missionVision{
+    text-align: center;
+    color: white;
+    margin-top: 10vh;
+    font-weight: bolder;
+    width: 45vw;
+    margin-left: 27.5vw;
+    
+}
+.missionVision h1{
+padding-bottom: 6vh;
+color: lightseagreen;
+font-size: 6vh;
+text-decoration: underline;
+}
+.missionVision h3{
+padding-bottom: 15vh;
+font-size: 4vh;
+}

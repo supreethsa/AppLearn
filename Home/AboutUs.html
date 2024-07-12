@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>AppLearn</title>
+        <link rel="stylesheet" href="./site.css" />
+        <script defer src="./site.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="google-site-verification" content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8">
+    </head>
+    <body class="scroll-container">
+        <header class="header" id="navbar">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <!-- Toggler Button for Mobile View -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <!-- Company/App Logo or Name -->
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 80px; width: 250px;">
+                    </a>
+    
+                    <!-- Navigation Links (Centered) -->
+                    <div class="navbar-collapse collapse d-sm-flex justify-content-center">
+                        <div class="nav-fonts">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color: white;" href="Index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Games" asp-action="Index" style="color: white;">Games</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index" style="color: white;" href="AboutUs.html">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Plans" asp-action="Index" style="color: white;">Plans</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Plans" asp-action="Index" style="color: white;" href="AIGame.html">AI Game</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <a class="btn btn-dark btn-lg" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
+                        <a class="btn btn-dark btn-lg" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header> 
+        <section class="AI-Background">
+            <div>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+        </section>     
+
+        <section id="Header Section" style="min-height: 750px;">
+            <div class="AI-h1">
+                <div class="whiteBackground">
+                    <h1>What is AppLearn?</h1>
+                </div>
+            </div>
+        </section>
+
+        <div class="divideLine"></div>
+
+        <section id="Mission & Vision">
+            <div class="missionVision">
+                <h1>Mission Statement:</h1>
+                <h3>We empower students to become creative problem-solvers by igniting their passion for STEM.</h3>
+                <h1>Vision Statement:</h1>
+                <h3></h3>
+            </div>
+
+        </section>
+        <footer class="footer-distributed border-top " style="background-color: #9b1f17;">
+            <div class="footer-left">
+                <h3><img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 90px; width: 300px;"></h3>
+                <p class="footer-links">
+                    <a href="#" class="link-1" id="footer-hover-links">HOME</a>
+                    <a>|</a>
+                    <a href="#" id="footer-hover-links">BLOG</a>
+                    <a>|</a>
+                    <a href="#" id="footer-hover-links">PRICING</a>
+                    <a>|</a>
+                    <a href="#" id="footer-hover-links">ABOUT</a>
+                    <a>|</a>
+                    <a href="#" id="footer-hover-links">FAQ</a>
+                    <a>|</a>
+                    <a href="#" id="footer-hover-links">CONTACT</a>
+                </p>
+                <p class="footer-company-name">AppLearn © 2023</p>
+            </div>
+            <div class="footer-center">
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>1234 E West Street</span> Evansville, Indiana</p>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+1.123.456.7890</p>
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:support@company.com">support@AppLearn.com</a></p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>About AppLearn</span>
+                    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                </p>
+                <div class="footer-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+    
+    </html>
