@@ -1116,3 +1116,19 @@ text-decoration: underline;
 padding-bottom: 15vh;
 font-size: 4vh;
 }
+.meetTeam{
+    color: white;
+    margin-top: 10vh;
+}
+.meetTeam h1{
+    padding-bottom: 1vh;
+    margin-left: 15vw;
+    font-weight: bolder;
+    font-size: 5vh;
+}
+.meetTeam h2{
+    margin-left: 17vw;
+    font-style: italic;
+    font-size: 3vh;
+    opacity: 0.8;
+}
