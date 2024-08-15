@@ -1132,3 +1132,32 @@ font-size: 4vh;
     font-size: 3vh;
     opacity: 0.8;
 }
+
+.hr-lines{
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 15px;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    margin-top: 20vh;
+  }
+  
+  .hr-lines:before, .hr-lines:after {
+    content: " ";
+    height: 4px;
+    background: red;
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100vw; /* Full viewport width */
+    opacity: 0.8;
+  }
+  
+  .hr-lines:before {
+    left: -100vw; /* Move the line to the left side of the screen */
+  }
+  
+  .hr-lines:after {
+    right: -100vw; /* Move the line to the right side of the screen */
+  }
