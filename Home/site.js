@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function animatePath() {
     if (!pathInView) return;
 
-    const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.clientHeight * .9);
+    const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (-document.documentElement.clientHeight * .9);
     const drawLength = pathLength * scrollPercentage;
 
     path.style.strokeDashoffset = pathLength - drawLength;
