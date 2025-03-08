@@ -2,9 +2,12 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden; /* Prevents scrolling */
+    background: url("img/starrybackground.jpg");
+    
+
 }
 .fullbody {
-    background: linear-gradient(to bottom, #fff, #e2d1dc);
+    color:white;
     height:100vh;
     width:100vw;
     position:relative;
@@ -66,15 +69,17 @@ h1, h2 {
 #welcome{
     font-size:50px;
 }
-@media (max-height: 865px) and (max-width:905px), (max-width:538px){
-    .spacestation, #rocket, #fire{
-        display:none;
-    }}
+
 @media (max-height: 865px) and (max-width:905px), (max-width:730px){
     #backbut, #homebut{
         bottom:50px;
         top:auto;
         z-index:3;
+    }
+}
+@media(max-width:918px){
+    #weirdpath{
+        visibility:hidden;
     }
 }
 @media (max-width:490px){
@@ -86,22 +91,19 @@ h1, h2 {
     }
 }
 .studentbut{
-    box-shadow:0px 5px 5px rgb(255, 255, 255,0.5
-    );
-    margin-left:100px;margin-right:50px;color:#fff;background-color: #c6abbd;
+    margin-left:100px;margin-right:50px;color:#fff;background-color: #9b1f17;
+    z-index:2;
+
 }
-.studentbut:hover{
+.studentbut:hover, .teacherbut:hover{
     cursor:pointer;
     background:linear-gradient(#c6abbd,#A28C9B);
 }
-.teacherbut:hover{
-    cursor:pointer;
-    background:linear-gradient(#fff,#dadada)
-}
+
 .teacherbut{
-    box-shadow:0px 5px 5px rgb(0, 0, 0,0.25
-    );
-    margin-right:100px;margin-left:50px;background-color:#fff;
+    margin-right:100px;margin-left:50px;background-color:#1ebcc8; color:white;
+    z-index:2;
+
 }
 .cloud {
     position: fixed;
@@ -117,39 +119,25 @@ h1, h2 {
     left: 50%;
     transform: translateX(-50%);
     bottom:0;
-    width:80vw;
+    width:70vw;
     height:auto;
-    z-index: 0;
+    z-index: -1;
 }
 .cloud3{
     bottom:0;
     right:0;
 }
+.draw-path {
+    animation: draw 20s linear infinite;
+}
 
-.spacestation {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width:300px;
-    height:auto;
-    z-index:3;
-}
-#rocket{
-    width:100px;
-    height:auto;
-    position:fixed;
-    left:50%;
-    bottom:0;
-    transform:translateX(-58%) translateY(-25%);
-}
-#fire{
-    width:40px;
-    height:auto;
-    position:fixed;
-    left:50%;
-    bottom:0;
-    transform:translateX(-68%) translateY(-25%);
+@keyframes draw {
+    from {
+        stroke-dashoffset: 5095;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 @keyframes fadeIn {
     from{
