@@ -4,33 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applearn Login</title>
-    <link rel="stylesheet" href="kevin.css">
+    <link rel="stylesheet" href="StudentorTeacherPrompt.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <svg id = "weirdpath" style = "position:fixed; z-index:-2; top:150" width="100vw" height="100vh">
+        <path d="M 1 4 C 191.518 9.2973 552.715 38.3946 473.359 112.406 C 447.379 131.514 368.967 175.86 263.159 200.379 C 198.603 211.73 86.4969 214.114 154.517 132.838 C 210.412 74.5677 375.816 10.5838 590.267 220.811 C 804.718 431.038 1121.93 539.566 1235.73 508.702 C 1349.1 497.351 1455 289 1294.93 192.932 C 1126.77 102.575 911.112 213.629 840.203 273.599 C 752.217 348.011 737.479 433.996 739.368 500.742 C 741.258 567.488 810.278 704.533 864.923 750.704 C 928.438 804.37 1076.56 911.769 1288.18 876.353 C 1499.79 840.936 1415.28 655.177 1251.35 670.037 C 1127.09 670.037 990.478 820.758 1274.12 897.18 C 1285.39 901.071 1345.16 911.084 1494 920" 
+              stroke="#1ebcc8" fill="none" stroke-width="4"
+              stroke-dasharray="5095" stroke-dashoffset="5095"
+              class="draw-path"/>
+
+    </svg>
     <div class = "fullbody instrument-sans-stuff">
         <a href="javascript:history.back()"><img src="img/backbutton.png" id ="backbut" alt="backbutton"></a>
         <a href="Index.html"><img src="img/home.png" id = "homebut" alt="home"></a>
         <div id = "welcomecontainer">
             <h1 id = "welcome" class ="place">Welcome!</h1>
         </div>
+        
         <div id ="studentteachercontainer">
             <h2 class = "studentteacher place">I am a ...</h2>
             <div id ="stbuttons">
-                <button class = "studentteacherbut studentbut" >Student</button>
-                <button class = "studentteacherbut teacherbut">Teacher</button>
+                <a href="SignUp.html"> <!--! same for now -->
+                <button class = "studentteacherbut studentbut" >Student</button></a>
+                <a></a><button class = "studentteacherbut teacherbut">Teacher</button>
+                </a>
             </div>
         </div>
+
         <img src="img/cloud1.png" class="cloud cloud1" id="cloud1" alt="Cloud">
         <img src="img/cloud2.png" class="cloud cloud2" id = "cloud2" alt="Cloud">
         <img src="img/cloud3.png" class="cloud cloud3" id = "cloud3" alt="Cloud">
-        <img src="img/station.png" class="spacestation" alt="Space Station">
-        <img src="img/rocket.png" id = "rocket" alt="rocket">
-        <img src="img/fire.png" id = "fire" alt="fire">
     </div>
-    
 </body>
 <script src= "kevin.js"></script>
 </html>
