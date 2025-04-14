@@ -1087,14 +1087,15 @@ svg{
     margin-top: 13vh;
     font-size: 2vh;
 }
-.learnImages{
-    width: 45vh;
-    height: 30vh;
+.learnImages1{
+    width: 80%;
+    height: auto;
     z-index: 0.49;
     background-color: black;
     border: 0.75vw solid lightseagreen;
     text-align: center;
     border-radius: 20px;
+    margin:0 auto;
 }
 
 .missionVision{
@@ -1168,12 +1169,38 @@ font-size: 4vh;
     gap: 10px;
     padding-top: 15vh;
     padding-bottom: 5vh;
-    margin-right: 5vw;
     margin-bottom: 65vh;
+    margin-right: 5vw;
+    align-items: center;
+}
+.grid-container-topic1{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+    margin-bottom: 65vh;
+    margin-left:20px;
+    margin-right:20px;
+    align-items: center;
+}
+
+.learnImages{
+    width:45vh;
+    height:30vh;
+    z-index: 0.49;
+    background-color: black;
+    border: 0.75vw solid lightseagreen;
+    text-align: center;
+    border-radius: 20px;
+    margin:0 auto;
 }
 .grid-item-topic{
     color: white;
     text-align: center;
+}
+.grid-item-topic1{
+    margin-left: 5vw;
 }
 .grid-item-topic h4{
     margin-top: 5vh;
@@ -1183,14 +1210,15 @@ font-size: 4vh;
     position: absolute;
     width: 25vw;
     height: 30vh;
-    margin-left: 5vw;
   }
   .learningTopic h4{
-    font-size: 35px;
+    font-size: 25px;
   }
   .learningTopic h6{
     font-size: 20px;
     padding-top: 10px;
+    padding-left:40px;
+    padding-right:40px;
   }
   .learningTopic u{
     color: #9b1f17;
