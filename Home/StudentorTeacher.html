@@ -8,16 +8,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./site.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="./site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <svg id = "weirdpath" style = "position:fixed; z-index:-2; top:150" width="100vw" height="100vh">
+    <header class="header" id="navbar" style="position:relative; z-index: 10;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+              <img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 80px; width: 250px;">
+            </a>
+      
+            <div class="navbar-collapse collapse d-sm-flex justify-content-center">
+              <div class="nav-fonts">
+                <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" href="Home.html" style="color: white;">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Explore.html" style="color: white;">Explore</a></li>
+                  <li class="nav-item"><a class="nav-link" href="AboutUs.html" style="color: white;">About Us</a></li>
+                  <!-- Plans (commented out)
+                  <li class="nav-item"><a class="nav-link" style="color: white;">Plans</a></li>
+                  -->
+                  <li class="nav-item"><a class="nav-link" href="Dashboardchoice.html" style="color: white;">Dashboard</a></li>
+                </ul>
+              </div>
+            </div>
+      
+            <div class="button-container">
+              <a class="btn btn-dark btn-lg" href="sign_up.html">Login</a>
+              <a href="StudentorTeacher.html" class="btn btn-dark btn-lg">Sign-Up</a>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <svg id = "weirdpath" style = "position:fixed; z-index:-2; top: 150px;" width="100vw" height="100vh">
         <path d="M 1 4 C 191.518 9.2973 552.715 38.3946 473.359 112.406 C 447.379 131.514 368.967 175.86 263.159 200.379 C 198.603 211.73 86.4969 214.114 154.517 132.838 C 210.412 74.5677 375.816 10.5838 590.267 220.811 C 804.718 431.038 1121.93 539.566 1235.73 508.702 C 1349.1 497.351 1455 289 1294.93 192.932 C 1126.77 102.575 911.112 213.629 840.203 273.599 C 752.217 348.011 737.479 433.996 739.368 500.742 C 741.258 567.488 810.278 704.533 864.923 750.704 C 928.438 804.37 1076.56 911.769 1288.18 876.353 C 1499.79 840.936 1415.28 655.177 1251.35 670.037 C 1127.09 670.037 990.478 820.758 1274.12 897.18 C 1285.39 901.071 1345.16 911.084 1494 920" 
               stroke="#1ebcc8" fill="none" stroke-width="4"
               stroke-dasharray="5095" stroke-dashoffset="5095"
               class="draw-path"/>
 
     </svg>
-    <div class = "fullbody instrument-sans-stuff">
+    <div class = "fullbody instrument-sans-stuff" style="padding-top: 100px;">
         <a href="javascript:history.back()"><img src="img/backbutton.png" id ="backbut" alt="backbutton"></a>
         <a href="Index.html"><img src="img/home.png" id = "homebut" alt="home"></a>
         <div id = "welcomecontainer">
