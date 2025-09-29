@@ -11,6 +11,31 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="google-site-verification" content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8">
+
+        <style id="freeze-dashboard-anims">
+            html * {
+              animation: none !important;
+              animation-play-state: paused !important;
+              transition: none !important;
+            }
+          
+            .scribble, #myPath, #follower {
+              display: none !important;
+            }
+          
+            .AI-Background .star,
+            .AI-Background .meteor-belt {
+              display: none !important;
+            }
+          
+            body {
+              background: url("img/starrybackground.jpg") center/cover fixed no-repeat !important;
+            }
+            .AI-Background {
+              min-height: 40vh; 
+              background: transparent !important; 
+            }
+        </style>          
     </head>
 <body style="font-family: Arial, Helvetica, sans-serif;">
     <header class="header" id="navbar">
