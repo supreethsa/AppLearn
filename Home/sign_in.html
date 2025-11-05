@@ -1,99 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>AppLearn</title>
-    <link rel="stylesheet" href="sign_in.css">
-    <script defer src="./site.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="google-site-verification" content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8">
+  <meta charset="utf-8" />
+  <title>AppLearn – Log In</title>
+  <link rel="stylesheet" href="sign_in.css" />
+  <script defer src="./site.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="header" id="navbar">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 80px; width: 250px;">
-                </a>
-                <div class="navbar-collapse collapse d-sm-flex justify-content-center">
-                    <div class="nav-fonts">
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="Home.html" style="color: white;">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Explore.html" style="color: white;">Explore</a></li>
-                            <li class="nav-item"><a class="nav-link" href="AboutUs.html" style="color: white;">About Us</a></li>
-                            <!--<li class="nav-item"><a class="nav-link" href="#" style="color: white;">Plans</a></li>-->
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index" style="color: white;" href="Dashboardchoice.html">Dashboard</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="button-container">
-                    <a class="btn btn-dark btn-lg" href="sign_up.html">Login</a>
-                    <a class="btn btn-dark btn-lg" href="student_or_teacher.html">Sign-Up</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container mt-5">
-        <h1 class="text-center">Sign Up</h1>
-        <div class="signup-container mx-auto p-4 shadow-sm rounded" style="max-width: 400px; background: #fff;">
-            <form id="signupForm">
-                <input type="email" id="email" class="form-control mb-3" placeholder="Enter your email" required>
-                <input type="password" id="password" class="form-control mb-3" placeholder="Enter password" required>
-                <input type="password" id="confirmPassword" class="form-control mb-3" placeholder="Confirm password" required>
-                
-                <select id="school" class="form-control mb-3" required>
-                    <option value="">Select your school</option>
-                    <option value="School A">School A</option>
-                    <option value="School B">School B</option>
-                    <option value="School C">School C</option>
-                    <option value="Other">Other</option>
-                </select>
-                <input type="text" id="otherSchool" class="form-control mb-3" placeholder="Specify other school" style="display: none;">
-                
-                <p id="errorMessage" class="text-danger text-center" style="display: none;">Passwords do not match!</p>
-                <button type="submit" class="btn btn-dark w-100">Sign Up</button>
-            </form>
-            <p class="text-center mt-3">Already have an account? <a href="login.html">Login</a></p>
-        </div>
+<header class="header" id="navbar">
+  <nav class="navbar navbar-expand-sm navbar-light border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Home.html">
+        <img src="./img/App-Learn Wordmark V1.png" alt="AppLearn" style="height:80px;width:250px;">
+      </a>
+      <div class="navbar-collapse collapse d-sm-flex justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" style="color:white;" href="Home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" style="color:white;" href="Explore.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" style="color:white;" href="AboutUs.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" style="color:white;" href="Dashboardchoice.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <a id="loginNavBtn"  class="btn btn-dark btn-lg" href="sign_in.html">Login</a>
+        <a id="signupNavBtn" class="btn btn-dark btn-lg" href="StudentorTeacher.html">Sign-Up</a>
+        
+      </div>
     </div>
+  </nav>
+</header>
 
-    <script>
-        document.getElementById("school").addEventListener("change", function() {
-            const otherSchoolInput = document.getElementById("otherSchool");
-            if (this.value === "Other") {
-                otherSchoolInput.style.display = "block";
-                otherSchoolInput.required = true;
-            } else {
-                otherSchoolInput.style.display = "none";
-                otherSchoolInput.required = false;
-            }
-        });
+<main class="container" style="max-width:480px; padding-top:120px; padding-bottom:60px;">
+  <h1 class="mb-4 text-center">Log in</h1>
+  <div id="loginAlert" class="alert alert-danger d-none"></div>
 
-        document.getElementById("signupForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
-            const errorMessage = document.getElementById("errorMessage");
-            
-            if (password !== confirmPassword) {
-                errorMessage.style.display = "block";
-            } else {
-                errorMessage.style.display = "none";
-                alert("Account created successfully! Redirecting to login page...");
-                window.location.href = "login.html";
-            }
-        });
-    </script>
+  <form id="loginForm" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input id="email" type="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input id="password" type="password" class="form-control" required>
+    </div>
+    <button class="btn btn-dark btn-lg w-100" type="submit">Log In</button>
+    <p class="mt-3 mb-0 text-center">No account? <a href="StudentorTeacher.html">Create one</a></p>
+  </form>
+</main>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const alertBox = document.getElementById('loginAlert');
+  const showErr = (msg) => { alertBox.textContent = msg; alertBox.classList.remove('d-none'); };
+  alertBox.classList.add('d-none');
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'Login failed');
+    // Redirect to dashboard choice (change if you prefer)
+    window.location.href = 'Dashboardchoice.html';
+  } catch (err) {
+    showErr(err.message);
+  }
+});
+</script>
 </body>
 </html>

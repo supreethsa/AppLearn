@@ -52,18 +52,15 @@
                     </div>
                 </div>
                 <div class="button-container">
-<!-- <<<<<<< FEAT/mahi
-                    <a class="btn btn-dark btn-lg" href="sign_up.html">Sign In</a>
-                    <a class="btn btn-dark btn-lg" href="student_or_teacher.html">Register</a>
-======= -->
-                    <a class="btn btn-dark btn-lg" href="sign_up.html">Login</a>
-                    <a href="StudentorTeacher.html" class="btn btn-dark btn-lg">Sign-Up</a>
-<!-- >>>>>>> main -->
-                </div>
+                    <a id="loginNavBtn"  class="btn btn-dark btn-lg" href="sign_up.html">Login</a>
+                    <a id="signupNavBtn" class="btn btn-dark btn-lg" href="StudentorTeacher.html">Sign-Up</a>
+                    <button id="logoutNavBtn" class="btn btn-dark btn-lg" style="display:none;">Logout</button>
+                  </div>
+                  
             </div>
         </nav>
     </header>
-    <svg preserveApectRatio="xMidYMax meet" fill="none" class="scribble">
+    <svg preserveAspectRatio="xMidYMax meet" fill="none" class="scribble">
             <path id="myPath" style="opacity: 0.75;" d="M1 4C191.518 9.2973 552.715 38.3946 473.359 112.406C447.379 131.514 368.967 175.86 263.159 200.379C198.603 211.73 86.4969 214.114 154.517 132.838C210.412 74.5677 375.816 10.5838 590.267 220.811C804.718 431.038 1121.93 539.566 1235.73 508.702C1349.1 497.351 1463.09 283.289 1294.93 192.932C1126.77 102.575 911.112 213.629 840.203 273.599C752.217 348.011 737.479 433.996 739.368 500.742C741.258 567.488 810.278 704.533 864.923 750.704C928.438 804.37 1076.56 911.769 1288.18 876.353C1499.79 840.936 1415.28 655.177 1251.35 670.037C1127.09 670.037 990.478 820.758 1274.12 897.18C1285.39 901.071 1345.16 911.084 1494 920" stroke="#1F959C" stroke-width="8"/>
             <circle id="follower" r="5" fill=#9b1f17></circle>
     </svg>   
@@ -101,21 +98,21 @@
         <div class="grid-container-topic">
             <div class="grid-item-topic">
                 <div class="learningTopic">
-                    <video class="learnImages" src="img/Quadratic_Eqn-YouTuber.mov" controls></video>
+                    <video class="learnImages trackable-video" data-video-id="quadratic-youtuber" src="img/Quadratic_Eqn-YouTuber.mov" controls></video>
                     <u><h4>YouTuber Scenario</h4></u>
                     <h6>Can you help this YouTuber increase content engagement?</h6>
                 </div>
             </div>
             <div class="grid-item-topic">
                 <div class="learningTopic">
-                    <video class="learnImages" src="img/Quadratic_Eqn-Gamer.mov" controls></video>
+                    <video class="learnImages trackable-video" data-video-id="quadratic-gamer" src="img/Quadratic_Eqn-Gamer.mov" controls></video>
                     <u><h4>Gamer Scenario</h4></u>
                     <h6>Can you help this gamer win the strategy game?</h6>
                 </div>
             </div>
             <div class="grid-item-topic">
                 <div class="learningTopic">
-                    <video class="learnImages" src="img/Quadratic_Eqn-Musician.mp4" controls></video>
+                    <video class="learnImages trackable-video" data-video-id="quadratic-musician" src="img/Quadratic_Eqn-Musician.mp4" controls></video>
                     <u><h4>Musician Scenario</h4></u>
                     <h6>Can you help this musician increase audience energy in concerts?</h6>
                 </div>
@@ -167,6 +164,191 @@
             </div>
         </div>
     </footer>
+    <script>
+        (async function () {
+          const videos = Array.from(document.querySelectorAll('video.trackable-video[data-video-id]'));
+          if (!videos.length) return;
+        
+          const videoMap = new Map(videos.map(v => [v.dataset.videoId, v]));
+        
+          const newSessionId = () => {
+            if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+              return window.crypto.randomUUID();
+            }
+            return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+          };
+        
+          let loggedIn = false;
+        
+          async function checkAuth() {
+            try {
+              const res = await fetch('/api/me', { credentials: 'include' });
+              if (!res.ok) return;
+              const data = await res.json();
+              loggedIn = !!(data && data.authenticated);
+            } catch (_) {
+              loggedIn = false;
+            }
+          }
+        
+          await checkAuth();
+          if (!loggedIn) return;
+        
+          const visibleState = { pageVisible: !document.hidden, visibleVideos: new Set() };
+          document.addEventListener('visibilitychange', () => {
+            visibleState.pageVisible = !document.hidden;
+            if (!visibleState.pageVisible) {
+              videos.forEach(v => v.__flushProgress && v.__flushProgress(true));
+            }
+          });
+        
+          const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              const video = entry.target;
+              if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                visibleState.visibleVideos.add(video);
+              } else {
+                visibleState.visibleVideos.delete(video);
+              }
+            });
+          }, { threshold: [0.5] });
+        
+          async function postProgress(video, body) {
+            if (!loggedIn) return;
+            const payload = { ...body, video_id: video.dataset.videoId };
+            if (video.__sessionId) {
+              payload.session_id = video.__sessionId;
+            }
+            try {
+              const res = await fetch('/api/video/progress', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(payload),
+              });
+              if (res.status === 401) {
+                loggedIn = false;
+                return;
+              }
+              if (!res.ok) return;
+              const data = await res.json();
+            } catch (err) {
+              console.warn('progress post failed', err);
+            }
+          }
+        
+          videos.forEach(video => {
+            io.observe(video);
+            video.__sessionId = null;
+            video.__sessionEnded = false;
+        
+            const ensureSessionId = () => {
+              if (!video.__sessionId || video.__sessionEnded || video.currentTime < 1) {
+                video.__sessionId = newSessionId();
+                video.__sessionEnded = false;
+              }
+              return video.__sessionId;
+            };
+            let lastT = video.currentTime;
+            let accum = 0;
+            let lastWall = performance.now();
+            let intervalId = null;
+        
+            const flush = (force = false, extra = {}) => {
+              if (!loggedIn) {
+                accum = 0;
+                return;
+              }
+              const seconds = Math.round(accum);
+              if (!force && seconds <= 0) return;
+              accum = 0;
+              postProgress(video, {
+                seconds_delta: seconds,
+                position: Math.round(video.currentTime),
+                duration: Math.round(video.duration || 0),
+                ...extra,
+              });
+            };
+        
+            video.__flushProgress = (force = false) => {
+              flush(force);
+            };
+        
+            const tick = () => {
+              if (!loggedIn) return;
+              const shouldCount = visibleState.pageVisible && visibleState.visibleVideos.has(video) && !video.paused && !video.ended;
+              const now = performance.now();
+              if (shouldCount) {
+                const wallDelta = Math.max(0, (now - lastWall) / 1000);
+                const current = video.currentTime;
+                if (current > lastT) {
+                  const delta = Math.min(current - lastT, wallDelta + 0.25);
+                  accum += delta;
+                  lastT = current;
+                }
+              } else {
+                lastT = video.currentTime;
+              }
+              lastWall = now;
+        
+              if (video.ended) {
+                flush(true, { completed: 1 });
+              } else if (accum >= 10) {
+                flush();
+              }
+            };
+        
+            video.addEventListener('play', () => {
+              ensureSessionId();
+              lastT = video.currentTime;
+              lastWall = performance.now();
+              if (intervalId === null) intervalId = window.setInterval(tick, 1000);
+              postProgress(video, {
+                seconds_delta: 0,
+                position: Math.round(video.currentTime),
+                duration: Math.round(video.duration || 0),
+                started: 1,
+              });
+            });
+        
+            video.addEventListener('pause', () => {
+              tick();
+              if (intervalId !== null) {
+                window.clearInterval(intervalId);
+                intervalId = null;
+              }
+              flush(true);
+            });
+        
+            video.addEventListener('ended', () => {
+              tick();
+              if (intervalId !== null) {
+                window.clearInterval(intervalId);
+                intervalId = null;
+              }
+              video.__sessionEnded = true;
+            });
+        
+            window.addEventListener('beforeunload', () => {
+              if (!loggedIn) return;
+              const seconds = Math.round(accum);
+              if (seconds <= 0) return;
+              const payload = {
+                video_id: video.dataset.videoId,
+                seconds_delta: seconds,
+                position: Math.round(video.currentTime),
+                duration: Math.round(video.duration || 0),
+                completed: video.ended ? 1 : 0,
+              };
+              if (video.__sessionId) {
+                payload.session_id = video.__sessionId;
+              }
+              const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+              navigator.sendBeacon('/api/video/progress', blob);
+            });
+          });
+        })();
+        </script>
     
 </body>
 </html>

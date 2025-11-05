@@ -1,20 +1,19 @@
-<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>AppLearn</title>
-        <link rel="stylesheet" href="./site.css" />
-        <script defer src="./site.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="google-site-verification" content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8">
-    </head>
+<head>
+<meta charset="utf-8"/>
+<title>AppLearn</title>
+<link href="./site.css" rel="stylesheet"/>
+<script defer="" src="./site.js"></script>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<meta content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8" name="google-site-verification"/>
+</head>
 <body>
-    <header class="header" id="navbar">
-        <style>
+<header class="header" id="navbar">
+<style>
             .grid-container-topic{
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
@@ -31,171 +30,979 @@
                 padding-left:40px;
                 padding-right:40px;
             }
+            .game-embed{
+                display:none;
+                padding:80px 0 120px;
+                background: rgba(17, 17, 17, 0.6);
+            }
+            .game-embed.active{
+                display:block;
+            }
+            .game-embed-inner{
+                max-width:960px;
+                margin:0 auto;
+                background:rgba(0,0,0,0.75);
+                padding:32px;
+                border-radius:24px;
+                box-shadow:0 20px 45px rgba(0,0,0,0.4);
+            }
+            .game-embed iframe{
+                border:0;
+                border-radius:16px;
+                background:#000;
+                width:100%;
+                aspect-ratio:16 / 9;
+                min-height:600px;
+            }
+            .game-embed-fallback{
+                margin-top:16px;
+                color:#f5f5f5;
+                text-align:center;
+                font-size:0.95rem;
+            }
+            .game-embed-fallback a{
+                color:#4ac3ff;
+                text-decoration:underline;
+            }
+            .game-embed-fallback.highlight{
+                font-weight:600;
+            }
+            @media (max-width: 768px){
+                .game-embed{
+                    padding:48px 0 80px;
+                }
+                .game-embed-inner{
+                    padding:24px;
+                }
+                .game-embed iframe{
+                    min-height:420px;
+                }
+            }
         </style>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <!-- Toggler Button for Mobile View -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Company/App Logo or Name -->
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 80px; width: 250px;">
-                </a>
-
-                <!-- Navigation Links (Centered) -->
-                <div class="navbar-collapse collapse d-sm-flex justify-content-center">
-                    <div class="nav-fonts">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color: white;" href="Home.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Games" asp-action="Index" style="color: white;" href="Explore.html">Explore</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index" style="color: white;" href="AboutUs.html">About Us</a>
-                            </li>
-                            <!--
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+<div class="container-fluid">
+<!-- Toggler Button for Mobile View -->
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target=".navbar-collapse" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Company/App Logo or Name -->
+<a asp-action="Index" asp-area="" asp-controller="Home" class="navbar-brand">
+<img alt="Company Logo" src="./img/App-Learn%20Wordmark%20V1.png" style="height: 80px; width: 250px;"/>
+</a>
+<!-- Navigation Links (Centered) -->
+<div class="navbar-collapse collapse d-sm-flex justify-content-center">
+<div class="nav-fonts">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a asp-action="Index" asp-area="" asp-controller="Home" class="nav-link" href="Home.html" style="color: white;">Home</a>
+</li>
+<li class="nav-item">
+<a asp-action="Index" asp-area="" asp-controller="Games" class="nav-link" href="Explore.html" style="color: white;">Explore</a>
+</li>
+<li class="nav-item">
+<a asp-action="Index" asp-area="" asp-controller="About" class="nav-link" href="AboutUs.html" style="color: white;">About Us</a>
+</li>
+<!--
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Plans" asp-action="Index" style="color: white;">Plans</a>
                             </li>
                             -->
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index" style="color: white;" href="Dashboardchoice.html">Dashboard</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="button-container">
-<!-- <<<<<<< FEAT/mahi
-                    <a class="btn btn-dark btn-lg" href="sign_up.html">Sign In</a>
-                    <a class="btn btn-dark btn-lg" href="student_or_teacher.html">Register</a>
-======= -->
-                    <a class="btn btn-dark btn-lg" href="sign_up.html">Login</a>
-                    <a href="StudentorTeacher.html" class="btn btn-dark btn-lg">Sign-Up</a>
-<!-- >>>>>>> main -->
-                </div>
-            </div>
-        </nav>
-    </header>
-    <svg preserveApectRatio="xMidYMax meet" fill="none" class="scribble">
-            <path id="myPath" style="opacity: 0.75;" d="M1 4C191.518 9.2973 552.715 38.3946 473.359 112.406C447.379 131.514 368.967 175.86 263.159 200.379C198.603 211.73 86.4969 214.114 154.517 132.838C210.412 74.5677 375.816 10.5838 590.267 220.811C804.718 431.038 1121.93 539.566 1235.73 508.702C1349.1 497.351 1463.09 283.289 1294.93 192.932C1126.77 102.575 911.112 213.629 840.203 273.599C752.217 348.011 737.479 433.996 739.368 500.742C741.258 567.488 810.278 704.533 864.923 750.704C928.438 804.37 1076.56 911.769 1288.18 876.353C1499.79 840.936 1415.28 655.177 1251.35 670.037C1127.09 670.037 990.478 820.758 1274.12 897.18C1285.39 901.071 1345.16 911.084 1494 920" stroke="#1F959C" stroke-width="8"/>
-            <circle id="follower" r="5" fill=#9b1f17></circle>
-    </svg>   
-    <section class="AI-Background">
-        <div>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-            <span class="star"></span>
-        </div>
-        <div>
-            <div class="meteor-belt">
-                <div class="meteor" id="meteor1"></div>
-                <div class="meteor" id="meteor2"></div>
-                <div class="meteor" id="meteor3"></div>
-                <div class="meteor" id="meteor4"></div>
-                <div class="meteor" id="meteor5"></div>
-                <div class="meteor" id="meteor6"></div>
-                <div class="meteor" id="meteor7"></div>
-                <div class="meteor" id="meteor8"></div>
-                <div class="meteor" id="meteor9"></div>
-                <div class="meteor" id="meteor10"></div>
-            </div>
-        </div>
-    </section>   
-    <div class="divideLine"></div>
-    <section id="What You Will Learn">
-        <div style="display: flex;align-items: center;justify-content: center;gap:50px; margin-top:200px;">
-            <div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
-            <div style="white-space: nowrap; color:white; font-size:40px; font-weight:bold;">LINEAR EQUATIONS</div>
-            <div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
-        </div>
-        <div class="grid-container-topic1">
-            <div class="grid-item-topic">
-                <div class="learningTopic">
-                    <video class="learnImages1" src="img/Linear_Eqn_System-Artist.mp4" controls></video>
-                    <u><h4>Artist Scenario</h4></u>
-                    <h6>Can you help the artist find the correct price point for his artwork?</h6>
-                </div>
-            </div>
-            <div class="grid-item-topic">
-                <div class="learningTopic">
-                    <video class="learnImages1" src="img/LinearEqn-YouTuber.MP4" controls></video>
-                    <a class="gamelink" href="https://edg22.itch.io/youtuber-simulator"><u><h4>Youtuber Scenario</h4></u></a>
+<li class="nav-item">
+<a asp-action="Index" asp-area="" asp-controller="Dashboard" class="nav-link" href="Dashboardchoice.html" style="color: white;">Dashboard</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="button-container">
+<a class="btn btn-dark btn-lg" href="sign_up.html" id="loginNavBtn">Login</a>
+<a class="btn btn-dark btn-lg" href="StudentorTeacher.html" id="signupNavBtn">Sign-Up</a>
+<button class="btn btn-dark btn-lg" id="logoutNavBtn" style="display:none;">Logout</button>
+</div>
+</div>
+</nav>
+</header>
+<svg class="scribble" fill="none" preserveaspectratio="xMidYMax meet">
+<path d="M1 4C191.518 9.2973 552.715 38.3946 473.359 112.406C447.379 131.514 368.967 175.86 263.159 200.379C198.603 211.73 86.4969 214.114 154.517 132.838C210.412 74.5677 375.816 10.5838 590.267 220.811C804.718 431.038 1121.93 539.566 1235.73 508.702C1349.1 497.351 1463.09 283.289 1294.93 192.932C1126.77 102.575 911.112 213.629 840.203 273.599C752.217 348.011 737.479 433.996 739.368 500.742C741.258 567.488 810.278 704.533 864.923 750.704C928.438 804.37 1076.56 911.769 1288.18 876.353C1499.79 840.936 1415.28 655.177 1251.35 670.037C1127.09 670.037 990.478 820.758 1274.12 897.18C1285.39 901.071 1345.16 911.084 1494 920" id="myPath" stroke="#1F959C" stroke-width="8" style="opacity: 0.75;"></path>
+<circle fill="#9b1f17" id="follower" r="5"></circle>
+</svg>
+<section class="AI-Background">
+<div>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+<span class="star"></span>
+</div>
+<div>
+<div class="meteor-belt">
+<div class="meteor" id="meteor1"></div>
+<div class="meteor" id="meteor2"></div>
+<div class="meteor" id="meteor3"></div>
+<div class="meteor" id="meteor4"></div>
+<div class="meteor" id="meteor5"></div>
+<div class="meteor" id="meteor6"></div>
+<div class="meteor" id="meteor7"></div>
+<div class="meteor" id="meteor8"></div>
+<div class="meteor" id="meteor9"></div>
+<div class="meteor" id="meteor10"></div>
+</div>
+</div>
+</section>
+<div class="divideLine"></div>
+<section id="What You Will Learn">
+<div style="display: flex;align-items: center;justify-content: center;gap:50px; margin-top:200px;">
+<div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
+<div style="white-space: nowrap; color:white; font-size:40px; font-weight:bold;">LINEAR EQUATIONS</div>
+<div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
+</div>
+<div class="grid-container-topic1">
+<div class="grid-item-topic">
+<div class="learningTopic">
+<video class="learnImages1 trackable-video" controls="" data-video-id="linear-artist" src="img/Linear_Eqn_System-Artist.mp4"></video>
+<u><h4>Artist Scenario</h4></u>
+<h6>Can you help the artist find the correct price point for his artwork?</h6>
+</div>
+</div>
+<div class="grid-item-topic">
+<div class="learningTopic">
+<video class="learnImages1 trackable-video" controls="" data-video-id="linear-youtuber" src="img/LinearEqn-YouTuber.MP4"></video>
+                    <u><h4>Youtuber Scenario</h4></u>
                     <h6>Can you help the YouTuber hit the monthly goal of channel views?</h6>
-                </div>
-            </div>
-            <div class="grid-item-topic">
-                <div class="learningTopic">
-                    <video class="learnImages1" src="img/Linear_Eqn_System-Athlete.mp4" controls></video>
-                    <u><h4>Athlete Scenario</h4></u>
-                    <h6>Can you help the athlete optimize his training routine?</h6>
-                </div>
-            </div>
-            <div class="grid-item-topic">
-                <div class="learningTopic">
-                    <video class="learnImages1" src="img/Linear_Eqn_System-Nurse.mp4" controls></video>
-                    <u><h4>Nurse Scenario</h4></u>
-                    <h6>Can you help the nurse determine the right medicine dosage?</h6>
-                </div>
-            </div>
-        </div>
-    </section>   
-    <footer class="footer-distributed border-top " style="background-color: #9b1f17;">
-        <div class="footer-left">
-            <h3><img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 90px; width: 300px;"></h3>
-            <p class="footer-links">
-                <a href="#" class="link-1" id="footer-hover-links">HOME</a>
-                <a>|</a>
-                <a href="#" id="footer-hover-links">BLOG</a>
-                <a>|</a>
-                <a href="#" id="footer-hover-links">PRICING</a>
-                <a>|</a>
-                <a href="#" id="footer-hover-links">ABOUT</a>
-                <a>|</a>
-                <a href="#" id="footer-hover-links">FAQ</a>
-                <a>|</a>
-                <a href="#" id="footer-hover-links">CONTACT</a>
-            </p>
-            <p class="footer-company-name">AppLearn © 2023</p>
-        </div>
-        <div class="footer-center">
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>1234 E West Street</span> Evansville, Indiana</p>
-            </div>
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+1.123.456.7890</p>
-            </div>
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">support@AppLearn.com</a></p>
-            </div>
-        </div>
-        <div class="footer-right">
-            <p class="footer-company-about">
-                <span>About AppLearn</span>
+                    <button type="button" id="playYoutuberGameBtn" class="btn btn-dark mt-3">Play Game</button>
+</div>
+</div>
+<div class="grid-item-topic">
+<div class="learningTopic">
+<video class="learnImages1 trackable-video" controls="" data-video-id="linear-athlete" src="img/Linear_Eqn_System-Athlete.mp4"></video>
+<u><h4>Athlete Scenario</h4></u>
+<h6>Can you help the athlete optimize his training routine?</h6>
+</div>
+</div>
+<div class="grid-item-topic">
+<div class="learningTopic">
+<video class="learnImages1 trackable-video" controls="" data-video-id="linear-nurse" src="img/Linear_Eqn_System-Nurse.mp4"></video>
+<u><h4>Nurse Scenario</h4></u>
+<h6>Can you help the nurse determine the right medicine dosage?</h6>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="game-embed" id="youtuberGameEmbed">
+<div class="game-embed-inner">
+<iframe allow="fullscreen *; autoplay; gamepad; xr-spatial-tracking" allowfullscreen="" id="youtuberGameFrame" loading="lazy" title="Youtuber Simulator Game"></iframe>
+<p class="game-embed-fallback" id="youtuberGameMessage">If the game does not load, <a href="https://edg22.itch.io/youtuber-simulator" id="youtuberGameExternalLink" rel="noopener" target="_blank">launch it in a new tab</a>.</p>
+</div>
+</div>
+</section>
+<footer class="footer-distributed border-top" style="background-color: #9b1f17;">
+<div class="footer-left">
+<h3><img alt="Company Logo" src="./img/App-Learn%20Wordmark%20V1.png" style="height: 90px; width: 300px;"/></h3>
+<p class="footer-links">
+<a class="link-1" href="#" id="footer-hover-links">HOME</a>
+<a>|</a>
+<a href="#" id="footer-hover-links">BLOG</a>
+<a>|</a>
+<a href="#" id="footer-hover-links">PRICING</a>
+<a>|</a>
+<a href="#" id="footer-hover-links">ABOUT</a>
+<a>|</a>
+<a href="#" id="footer-hover-links">FAQ</a>
+<a>|</a>
+<a href="#" id="footer-hover-links">CONTACT</a>
+</p>
+<p class="footer-company-name">AppLearn © 2023</p>
+</div>
+<div class="footer-center">
+<div>
+<i class="fa fa-map-marker"></i>
+<p><span>1234 E West Street</span> Evansville, Indiana</p>
+</div>
+<div>
+<i class="fa fa-phone"></i>
+<p>+1.123.456.7890</p>
+</div>
+<div>
+<i class="fa fa-envelope"></i>
+<p><a href="mailto:support@company.com">support@AppLearn.com</a></p>
+</div>
+</div>
+<div class="footer-right">
+<p class="footer-company-about">
+<span>About AppLearn</span>
                 Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
             </p>
-            <div class="footer-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </footer>
-    
+<div class="footer-icons">
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</footer>
+<script>
+        (async function () {
+          const EXTERNAL_GAME_URL = 'https://edg22.itch.io/youtuber-simulator';
+          const GAME_EMBED_URL = './games/youtuber-simulator/index.html';
+          const GAME_ID = 'linear-youtuber';
+          const GAME_STORAGE_KEY = 'applearn-game-complete';
+          const DEFAULT_GAME_FALLBACK_URL = EXTERNAL_GAME_URL;
+          const videos = Array.from(document.querySelectorAll('video.trackable-video[data-video-id]'));
+          const gameEmbedSection = document.getElementById('youtuberGameEmbed');
+          const gameIframe = document.getElementById('youtuberGameFrame');
+          const gameExternalLink = document.getElementById('youtuberGameExternalLink');
+          const gameMessage = document.getElementById('youtuberGameMessage');
+          let currentUser = null;
+          let currentGameSession = null;
+          let embedFailed = false;
+          let unityErrorHandled = false;
+          let rejectionHandler = null;
+          let errorHandler = null;
+
+          if (gameExternalLink) {
+            gameExternalLink.href = DEFAULT_GAME_FALLBACK_URL;
+          }
+
+          function buildGameLaunchUrl(token, options = {}) {
+            const params = new URLSearchParams();
+            params.set('game_id', GAME_ID);
+            if (token) {
+              params.set('token', token);
+            }
+            if (options.mode) {
+              params.set('mode', options.mode);
+            }
+            if (options.reason) {
+              params.set('reason', options.reason);
+            }
+            return `${GAME_EMBED_URL}?${params.toString()}`;
+          }
+
+          function syncExternalLink(session) {
+            if (!gameExternalLink) return;
+            if (session && session.token) {
+              gameExternalLink.href = buildGameLaunchUrl(session.token, { mode: 'window' });
+              gameExternalLink.setAttribute('rel', 'noopener');
+              gameExternalLink.setAttribute('data-tracked', '1');
+            } else {
+              gameExternalLink.href = DEFAULT_GAME_FALLBACK_URL;
+              gameExternalLink.removeAttribute('data-tracked');
+            }
+          }
+
+          function setCurrentSession(session) {
+            if (session) {
+              currentGameSession = {
+                status: session.status || 'started',
+                ...session,
+              };
+            } else {
+              currentGameSession = null;
+            }
+            syncExternalLink(currentGameSession);
+          }
+
+          function refreshAttemptMetrics() {
+            const labels = Array.from(document.querySelectorAll(`.row-label[data-game-id="${GAME_ID}"]`));
+            if (labels.length) {
+              updateAttempts(labels);
+            }
+          }
+
+          async function startTrackedSession(trackAttempts) {
+            const attemptsDelta = trackAttempts ? 1 : 0;
+            const body = {
+              game_id: GAME_ID,
+              attempts_delta: attemptsDelta,
+              metadata: {
+                page: 'LinearEqu',
+                requested_mode: 'iframe',
+                launched_at: new Date().toISOString(),
+              },
+            };
+            try {
+              const res = await fetch('/api/game/start', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(body),
+              });
+              if (!res.ok) return null;
+              const payload = await res.json();
+              if (!payload || !payload.ok || !payload.session) return null;
+              return payload.session;
+            } catch (err) {
+              console.warn('game session start failed', err);
+              return null;
+            }
+          }
+
+          function buildIframeSrc(session) {
+            if (!session || !session.token) return GAME_EMBED_URL;
+            return buildGameLaunchUrl(session.token, { mode: 'embed' });
+          }
+
+          function openTrackedWindow(session, reason = 'fallback') {
+            const trackedUrl = session && session.token
+              ? buildGameLaunchUrl(session.token, { mode: 'window', reason })
+              : null;
+            const targetUrl = trackedUrl || DEFAULT_GAME_FALLBACK_URL;
+            try {
+              window.open(targetUrl, '_blank', 'noopener');
+            } catch (err) {
+              console.warn('Automatic fallback window blocked:', err);
+            }
+            const trackedLink = trackedUrl
+              ? `<a href="${trackedUrl}" rel="noopener" target="_blank">open the tracked version in a new tab</a>`
+              : `<a href="${DEFAULT_GAME_FALLBACK_URL}" rel="noopener" target="_blank">open the game in a new tab</a>`;
+            const extra = trackedUrl && trackedUrl !== DEFAULT_GAME_FALLBACK_URL
+              ? ` You can also <a href="${DEFAULT_GAME_FALLBACK_URL}" rel="noopener" target="_blank">try the publisher's site</a>.`
+              : '';
+            setGameMessage(`We had trouble loading the embedded version, so you can ${trackedLink}.${extra}`, true);
+          }
+
+          function handleGameCompletionPayload(payload) {
+            if (!payload) return;
+            if (payload.status && payload.status !== 'completed') {
+              return;
+            }
+            if (payload.token && currentGameSession && currentGameSession.token && payload.token !== currentGameSession.token) {
+              return;
+            }
+            if (currentGameSession) {
+              currentGameSession.status = 'completed';
+              currentGameSession.completed_at = payload.completed_at || new Date().toISOString();
+            }
+            setGameMessage('Nice work! Your completion was recorded.', true);
+            refreshAttemptMetrics();
+            try {
+              if (window.localStorage) {
+                window.localStorage.removeItem(GAME_STORAGE_KEY);
+              }
+            } catch (_) {
+              /* ignore storage clean-up errors */
+            }
+          }
+
+          function handleGameMessage(event) {
+            if (event.origin !== window.location.origin) return;
+            const data = event.data;
+            if (!data) return;
+            if (data.type === 'applearn/game-complete') {
+              handleGameCompletionPayload(data.session || data);
+            }
+          }
+
+          function handleStorageEvent(event) {
+            if (event.key !== GAME_STORAGE_KEY || !event.newValue) return;
+            try {
+              const payload = JSON.parse(event.newValue);
+              handleGameCompletionPayload(payload);
+            } catch (err) {
+              console.warn('Malformed completion payload', err);
+            }
+          }
+
+          window.addEventListener('message', handleGameMessage);
+          window.addEventListener('storage', handleStorageEvent);
+          setCurrentSession(null);
+
+          async function fetchCurrentUser() {
+            try {
+              const res = await fetch('/api/me', { credentials: 'include' });
+              if (!res.ok) return false;
+              const data = await res.json();
+              if (data && data.authenticated) {
+                currentUser = data;
+                return true;
+              }
+            } catch (_) {
+              return false;
+            }
+            return false;
+          }
+
+          function setGameMessage(html, highlight = false) {
+            if (!gameMessage) return;
+            gameMessage.innerHTML = html;
+            gameMessage.classList.toggle('highlight', Boolean(highlight));
+          }
+
+          function handleEmbedFailure(reason) {
+            if (unityErrorHandled) return;
+            unityErrorHandled = true;
+            embedFailed = true;
+            if (rejectionHandler) {
+              window.removeEventListener('unhandledrejection', rejectionHandler);
+              rejectionHandler = null;
+            }
+            if (errorHandler) {
+              window.removeEventListener('error', errorHandler);
+              errorHandler = null;
+            }
+            if (gameIframe) {
+              delete gameIframe.dataset.currentSrc;
+              delete gameIframe.dataset.sessionToken;
+              gameIframe.removeAttribute('src');
+            }
+            if (gameEmbedSection) {
+              gameEmbedSection.classList.remove('active');
+              gameEmbedSection.setAttribute('aria-hidden', 'true');
+            }
+            console.warn('Unity embed failed:', reason);
+            openTrackedWindow(currentGameSession, 'embed-error');
+          }
+
+          function revealGameEmbed(sessionOverride) {
+            const session = sessionOverride || currentGameSession;
+            if (embedFailed) {
+              openTrackedWindow(session, 'embed-disabled');
+              return;
+            }
+            if (!gameEmbedSection) {
+              openTrackedWindow(session, 'no-embed');
+              return;
+            }
+            if (gameIframe) {
+              const targetSrc = buildIframeSrc(session);
+              if (!gameIframe.dataset.currentSrc || gameIframe.dataset.currentSrc !== targetSrc) {
+                gameIframe.dataset.currentSrc = targetSrc;
+                if (session && session.token) {
+                  gameIframe.dataset.sessionToken = session.token;
+                } else {
+                  delete gameIframe.dataset.sessionToken;
+                }
+                gameIframe.src = targetSrc;
+              }
+            }
+            gameEmbedSection.classList.add('active');
+            gameEmbedSection.setAttribute('aria-hidden', 'false');
+            setGameMessage('Loading game…', false);
+
+            if (!rejectionHandler) {
+              rejectionHandler = (event) => {
+                const msg = String(event.reason || event.message || '');
+                if (msg && msg.toLowerCase().includes('indirect call signature mismatch')) {
+                  event.preventDefault();
+                  handleEmbedFailure(msg);
+                }
+              };
+              window.addEventListener('unhandledrejection', rejectionHandler);
+            }
+
+            if (!errorHandler) {
+              errorHandler = (event) => {
+                const msg = String(event.message || '');
+                if (msg && msg.toLowerCase().includes('indirect call signature mismatch')) {
+                  handleEmbedFailure(msg);
+                }
+              };
+              window.addEventListener('error', errorHandler);
+            }
+
+            if (gameIframe) {
+              const onLoad = () => {
+                if (!embedFailed) {
+                  setGameMessage('All set! Click inside the window to start playing.');
+                  if (rejectionHandler) {
+                    window.setTimeout(() => {
+                      window.removeEventListener('unhandledrejection', rejectionHandler);
+                      rejectionHandler = null;
+                    }, 2500);
+                  }
+                  if (errorHandler) {
+                    window.setTimeout(() => {
+                      window.removeEventListener('error', errorHandler);
+                      errorHandler = null;
+                    }, 2500);
+                  }
+                }
+                gameIframe.removeEventListener('load', onLoad);
+              };
+              gameIframe.addEventListener('load', onLoad);
+            }
+
+            if (typeof gameEmbedSection.scrollIntoView === 'function') {
+              try {
+                gameEmbedSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              } catch (_) {
+                gameEmbedSection.scrollIntoView();
+              }
+            }
+            if (gameIframe && typeof gameIframe.focus === 'function') {
+              try {
+                gameIframe.focus({ preventScroll: true });
+              } catch (_) {
+                /* ignore focus errors */
+              }
+            }
+          }
+
+          function initPlayButton(trackAttempts) {
+            const playBtn = document.getElementById('playYoutuberGameBtn');
+            if (!playBtn) return;
+            playBtn.addEventListener('click', async () => {
+              let session = null;
+              if (trackAttempts) {
+                session = await startTrackedSession(true);
+                if (!session) {
+                  setCurrentSession(null);
+                  setGameMessage('We could not start tracking right now. You can still play, but completion will not be recorded.', true);
+                  revealGameEmbed(null);
+                  return;
+                }
+              }
+              setCurrentSession(session);
+              revealGameEmbed(session);
+              if (trackAttempts) {
+                refreshAttemptMetrics();
+              }
+            });
+          }
+
+          function setupVideoProgress() {
+            if (!videos.length) return;
+
+            const newSessionId = () => {
+              if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+                return window.crypto.randomUUID();
+              }
+              return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+            };
+
+            const visibleState = { pageVisible: !document.hidden, visibleVideos: new Set() };
+            document.addEventListener('visibilitychange', () => {
+              visibleState.pageVisible = !document.hidden;
+              if (!visibleState.pageVisible) {
+                videos.forEach(v => v.__flushProgress && v.__flushProgress(true));
+              }
+            });
+
+            const io = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                  visibleState.visibleVideos.add(video);
+                } else {
+                  visibleState.visibleVideos.delete(video);
+                }
+              });
+            }, { threshold: [0.5] });
+
+            async function postProgress(video, body) {
+              const payload = { ...body, video_id: video.dataset.videoId };
+              if (video.__sessionId) {
+                payload.session_id = video.__sessionId;
+              }
+              try {
+                const res = await fetch('/api/video/progress', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  credentials: 'include',
+                  body: JSON.stringify(payload),
+                });
+                if (res.status === 401) {
+                  return;
+                }
+              } catch (err) {
+                console.warn('progress post failed', err);
+              }
+            }
+
+            videos.forEach(video => {
+              io.observe(video);
+              video.__sessionId = null;
+              video.__sessionEnded = false;
+
+              const ensureSessionId = () => {
+                if (!video.__sessionId || video.__sessionEnded || video.currentTime < 1) {
+                  video.__sessionId = newSessionId();
+                  video.__sessionEnded = false;
+                }
+                return video.__sessionId;
+              };
+
+              let lastT = video.currentTime;
+              let accum = 0;
+              let lastWall = performance.now();
+              let intervalId = null;
+
+              const flush = (force = false, extra = {}) => {
+                const seconds = Math.round(accum);
+                if (!force && seconds <= 0) return;
+                accum = 0;
+                postProgress(video, {
+                  seconds_delta: seconds,
+                  position: Math.round(video.currentTime),
+                  duration: Math.round(video.duration || 0),
+                  ...extra,
+                });
+              };
+
+              video.__flushProgress = (force = false) => {
+                flush(force);
+              };
+
+              const tick = () => {
+                const shouldCount = visibleState.pageVisible && visibleState.visibleVideos.has(video) && !video.paused && !video.ended;
+                const now = performance.now();
+                if (shouldCount) {
+                  const wallDelta = Math.max(0, (now - lastWall) / 1000);
+                  const current = video.currentTime;
+                  if (current > lastT) {
+                    const delta = Math.min(current - lastT, wallDelta + 0.25);
+                    accum += delta;
+                    lastT = current;
+                  }
+                } else {
+                  lastT = video.currentTime;
+                }
+                lastWall = now;
+
+                if (video.ended) {
+                  flush(true, { completed: 1 });
+                } else if (accum >= 10) {
+                  flush();
+                }
+              };
+
+              video.addEventListener('play', () => {
+                ensureSessionId();
+                lastT = video.currentTime;
+                lastWall = performance.now();
+                if (intervalId === null) intervalId = window.setInterval(tick, 1000);
+                postProgress(video, {
+                  seconds_delta: 0,
+                  position: Math.round(video.currentTime),
+                  duration: Math.round(video.duration || 0),
+                  started: 1,
+                });
+              });
+
+              video.addEventListener('pause', () => {
+                tick();
+                if (intervalId !== null) {
+                  window.clearInterval(intervalId);
+                  intervalId = null;
+                }
+                flush(true);
+              });
+
+              video.addEventListener('ended', () => {
+                tick();
+                if (intervalId !== null) {
+                  window.clearInterval(intervalId);
+                  intervalId = null;
+                }
+                video.__sessionEnded = true;
+              });
+
+              window.addEventListener('beforeunload', () => {
+                const seconds = Math.round(accum);
+                if (seconds <= 0) return;
+                const payload = {
+                  video_id: video.dataset.videoId,
+                  seconds_delta: seconds,
+                  position: Math.round(video.currentTime),
+                  duration: Math.round(video.duration || 0),
+                  completed: video.ended ? 1 : 0,
+                };
+                if (video.__sessionId) {
+                  payload.session_id = video.__sessionId;
+                }
+                const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+                navigator.sendBeacon('/api/video/progress', blob);
+              });
+            });
+          }
+
+          function getSquares(label) {
+            if (!label) return [];
+            const squares = [];
+            let el = label.nextSibling;
+            while (el && el.nodeType !== 1) {
+              el = el.nextSibling;
+            }
+            while (el && el.classList && el.classList.contains('square')) {
+              squares.push(el);
+              el = el.nextSibling;
+              while (el && el.nodeType !== 1) {
+                el = el.nextSibling;
+              }
+            }
+            return squares;
+          }
+
+          function clearSquare(label, index) {
+            const squares = getSquares(label);
+            if (!squares[index]) return;
+            const square = squares[index];
+            square.textContent = '';
+            square.classList.remove('square-has-data');
+            square.removeAttribute('title');
+          }
+
+          function setSquareValue(label, index, value, title, blankWhenZero = false) {
+            const squares = getSquares(label);
+            if (!squares[index]) return;
+            const square = squares[index];
+            const numeric = Number(value) || 0;
+            if (blankWhenZero && numeric <= 0) {
+              clearSquare(label, index);
+              return;
+            }
+            square.textContent = String(numeric);
+            if (numeric > 0) {
+              square.classList.add('square-has-data');
+            } else {
+              square.classList.remove('square-has-data');
+            }
+            if (title) {
+              square.setAttribute('title', `${title}: ${numeric}`);
+            } else {
+              square.removeAttribute('title');
+            }
+          }
+
+          async function updateViews(labels) {
+            const ids = labels.map(label => label.dataset.videoId).filter(Boolean);
+            if (!ids.length) return;
+            try {
+              const response = await fetch(`/api/video/progress?ids=${encodeURIComponent(ids.join(','))}`, {
+                credentials: 'include'
+              });
+              if (!response.ok) return;
+              const payload = await response.json();
+              if (!payload || !payload.ok || !payload.views) return;
+              labels.forEach(label => {
+                const view = payload.views[label.dataset.videoId];
+                const count = view ? Number(view.view_count || 0) : 0;
+                setSquareValue(label, 0, count, 'Views');
+              });
+            } catch (err) {
+              console.warn('Failed to fetch video progress', err);
+            }
+          }
+
+          async function updateAttempts(labels) {
+            const ids = labels.map(label => label.dataset.gameId).filter(Boolean);
+            if (!ids.length) return;
+            try {
+              const response = await fetch(`/api/game/attempts?ids=${encodeURIComponent(ids.join(','))}`, {
+                credentials: 'include'
+              });
+              if (!response.ok) return;
+              const payload = await response.json();
+              if (!payload || !payload.ok || !payload.games) return;
+              labels.forEach(label => {
+                const game = payload.games[label.dataset.gameId];
+                const count = game ? Number(game.attempts || 0) : 0;
+                setSquareValue(label, 1, count, 'Attempts', true);
+              });
+            } catch (err) {
+              console.warn('Failed to fetch game attempts', err);
+            }
+          }
+
+          function updateAggregates() {
+            document.querySelectorAll('.topiccontainer').forEach(container => {
+              const labels = Array.from(container.querySelectorAll('.row-label'));
+              const columnTotals = [];
+              let aggregateLabel = null;
+
+              labels.forEach(label => {
+                const squares = getSquares(label);
+                if (!squares.length) return;
+                if (label.dataset && label.dataset.videoId) {
+                  squares.forEach((square, idx) => {
+                    const val = Number(square.textContent) || 0;
+                    columnTotals[idx] = (columnTotals[idx] || 0) + val;
+                  });
+                } else {
+                  aggregateLabel = label;
+                }
+              });
+
+              if (!aggregateLabel) return;
+              const squares = getSquares(aggregateLabel);
+              squares.forEach((_, idx) => {
+                const total = columnTotals[idx] || 0;
+                if (idx === 0) {
+                  setSquareValue(aggregateLabel, idx, total, 'Total views');
+                } else if (idx === 1) {
+                  setSquareValue(aggregateLabel, idx, total, 'Total attempts', true);
+                } else {
+                  clearSquare(aggregateLabel, idx);
+                }
+              });
+            });
+          }
+
+          async function setupStudentDashboard() {
+            const labelNodes = Array.from(document.querySelectorAll('.row-label[data-video-id]'));
+            const gameLabels = labelNodes.filter(label => label.dataset.gameId);
+
+            labelNodes.forEach(label => {
+              setSquareValue(label, 0, 0, 'Views');
+              const squares = getSquares(label);
+              for (let i = 1; i < squares.length; i++) {
+                clearSquare(label, i);
+              }
+            });
+
+            gameLabels.forEach(label => {
+              setSquareValue(label, 1, 0, 'Attempts', true);
+            });
+
+            await updateViews(labelNodes);
+            await updateAttempts(gameLabels);
+            updateAggregates();
+          }
+
+          function hideTopicsSection() {
+            document.querySelectorAll('.topics-header, .topics-wrapper').forEach(el => {
+              el.style.display = 'none';
+            });
+          }
+
+          function updateClassSummary(summary) {
+            const studentCount = summary.student_count || 0;
+            const totalViews = summary.total_views || 0;
+            const totalAttempts = summary.total_attempts || 0;
+            const avgViews = studentCount ? Math.round(totalViews / studentCount) : 0;
+            const avgAttempts = studentCount ? Math.round(totalAttempts / studentCount) : 0;
+            const values = [
+              totalViews,
+              totalAttempts,
+              studentCount,
+              avgViews,
+              avgAttempts
+            ];
+            const labels = [
+              'Total Views',
+              'Total Attempts',
+              'Students',
+              'Avg Views / Student',
+              'Avg Attempts / Student'
+            ];
+
+            const rows = document.querySelectorAll('.stat-panel .stat-row');
+            rows.forEach((row, idx) => {
+              const labelEl = row.querySelector('.stat-label');
+              const bar = row.querySelector('.stat-bar');
+              if (!bar) return;
+              if (labelEl && labels[idx]) {
+                labelEl.textContent = labels[idx];
+              }
+              const value = values[idx] !== undefined ? values[idx] : '';
+              bar.style.display = 'flex';
+              bar.style.alignItems = 'center';
+              bar.style.justifyContent = 'center';
+              bar.style.width = '150px';
+              bar.style.height = '40px';
+              bar.style.backgroundColor = '#8b2c20';
+              bar.style.color = '#fff';
+              bar.style.fontWeight = '600';
+              bar.style.fontSize = '0.95rem';
+              bar.textContent = typeof value === 'number' ? value.toLocaleString() : (value || '');
+            });
+          }
+
+          function createMetricCell(value) {
+            const td = document.createElement('td');
+            const div = document.createElement('div');
+            div.className = 'stdlist-red-box';
+            if (value !== null && value !== undefined && value !== '') {
+              div.textContent = typeof value === 'number' ? value.toLocaleString() : value;
+            }
+            td.appendChild(div);
+            return td;
+          }
+
+          function buildStudentTable(students) {
+            const tbody = document.querySelector('table tbody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            if (!students.length) {
+              const tr = document.createElement('tr');
+              const td = document.createElement('td');
+              td.colSpan = 9;
+              td.textContent = 'No students yet.';
+              td.style.color = '#ffffff';
+              td.style.textAlign = 'center';
+              tr.appendChild(td);
+              tbody.appendChild(tr);
+              return;
+            }
+
+            students.forEach(student => {
+              const tr = document.createElement('tr');
+              tr.className = 'stdrow';
+
+              const checkboxTd = document.createElement('td');
+              checkboxTd.className = 'stdlist-checkbox';
+              const label = document.createElement('label');
+              label.className = 'custom-checkbox';
+              const checkbox = document.createElement('input');
+              checkbox.type = 'checkbox';
+              label.appendChild(checkbox);
+              checkboxTd.appendChild(label);
+              tr.appendChild(checkboxTd);
+
+              const nameTd = document.createElement('td');
+              nameTd.textContent = student.full_name || `${student.first_name || ''} ${student.last_name || ''}`.trim();
+              tr.appendChild(nameTd);
+
+              tr.appendChild(createMetricCell(student.total_views || 0));
+              tr.appendChild(createMetricCell(student.total_attempts || 0));
+              tr.appendChild(createMetricCell(''));
+              tr.appendChild(createMetricCell(''));
+              tr.appendChild(createMetricCell(''));
+              tr.appendChild(createMetricCell(''));
+
+              const noteTd = document.createElement('td');
+              const input = document.createElement('input');
+              input.type = 'text';
+              input.className = 'stdlist-text-box';
+              input.placeholder = '<text box>';
+              noteTd.appendChild(input);
+              tr.appendChild(noteTd);
+
+              tbody.appendChild(tr);
+            });
+          }
+
+          async function setupTeacherDashboard() {
+            hideTopicsSection();
+            try {
+              const res = await fetch('/api/teacher/stats', { credentials: 'include' });
+              if (!res.ok) return;
+              const payload = await res.json();
+              if (!payload || !payload.ok) return;
+              updateClassSummary(payload.summary || {});
+              buildStudentTable(payload.students || []);
+            } catch (err) {
+              console.warn('Failed to fetch teacher stats', err);
+            }
+          }
+
+          const loggedIn = await fetchCurrentUser();
+          const role = currentUser ? (currentUser.role || '').toLowerCase() : '';
+          initPlayButton(loggedIn && role === 'student');
+
+          if (!loggedIn) return;
+
+          if (role === 'student') {
+            setupVideoProgress();
+            await setupStudentDashboard();
+          } else if (role === 'teacher') {
+            await setupTeacherDashboard();
+          }
+        })();
+        </script>
 </body>
 </html>

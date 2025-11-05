@@ -368,9 +368,29 @@ body {
 }
 
 .button-container {
-    display: flex; /* Use flexbox to align buttons horizontally */
-    gap: 20px; /* Adjust the spacing between buttons */
+    display: flex; /* Align buttons and welcome text on one row */
+    align-items: center;
+    gap: 16px;
     margin-left: 20px;
+}
+
+.welcome-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.button-container #welcomeMsg {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+}
+
+.button-container #welcomeRole {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .button-50 {
@@ -1259,26 +1279,52 @@ font-size: 4vh;
     height: 100%;
   }
 
-  .stat-label {
+.stat-label {
     width: 100px;
     color:white;
-  }
+    text-align:center;
+}
 
-  .stat-bar {
+.stat-bar {
     width: 40px;
     height: 40px;
     background-color: #8b2c20; /* matches the dark red color */
-  }
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.stat-panel {
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.stat-panel .stat-row {
+    justify-content:center;
+}
+
+.class-summary {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    flex:0 0 auto !important;
+    width:auto !important;
+}
   figure{
     text-align:center;
   }
-  .topiccontainer {
+.topiccontainer {
     display: grid;
     grid-template-columns: 100px repeat(5, 50px);
     gap: 10px;
     place-items:center;
     margin:0 auto;
-  }
+}
   .topicparent{
     display:flex;
     justify-content:center;
@@ -1310,6 +1356,17 @@ font-size: 4vh;
     height: 30px;
     background-color: #8B2C24;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .square.square-has-data {
+    background-color: #14532d;
   }
 
   .row-label {
@@ -1335,12 +1392,22 @@ table {
   border-collapse: collapse;
   color:white;
   margin:40px auto 100px auto;
+  text-align:center;
 }
 
 th, td {
   border-bottom: 1px solid #444;
   padding: 10px;
   text-align: center;
+}
+
+.stdrow {
+  text-align:center;
+}
+
+.student-list-header {
+  text-align:center;
+  justify-content:center;
 }
 
 th {
@@ -1395,3 +1462,13 @@ colgroup col:nth-child(9) { width: 30%; }
 .stdrow {
     border-bottom: 1px solid white;
   }
+  
+#welcome,
+#welcomeName,
+.welcome,
+.welcome-text,
+.welcomeSection h1,
+#WelcomeSection h1 {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}

@@ -1,124 +1,77 @@
+// site.js
 document.addEventListener('DOMContentLoaded', () => {
-  // Intersection Observer for showing elements
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
+  // --- keep your existing non-auth code here (animations, etc.) ---
+  try {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => e.isIntersecting && e.target.classList.add('show'));
     });
-  });
+    document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+  } catch (_) {}
 
-  const hiddenElements = document.querySelectorAll('.hidden');
-  hiddenElements.forEach((el) => observer.observe(el));
+  // ------- Auth UI toggle (simple inline welcome + logout) -------
+const loginBtn  = document.getElementById('loginNavBtn');
+const signupBtn = document.getElementById('signupNavBtn');
+const logoutBtn = document.getElementById('logoutNavBtn');
+const btnContainer = document.querySelector('.button-container');
 
-  // Navbar hide/show on scroll
-  let prevScrollpos = window.pageYOffset;
-  window.onscroll = function () {
-    const currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-110px";
-    }
-    prevScrollpos = currentScrollPos;
-  };
+let welcomeWrapper = document.getElementById('welcomeWrapper');
+let welcomeSpan = document.getElementById('welcomeMsg');
+let roleSpan = document.getElementById('welcomeRole');
 
-  // Path animation
-  const path = document.getElementById('rocket');
-  const pathLength = path.getTotalLength();
-  let pathInView = false;
-
-  path.style.strokeDasharray = `${pathLength} ${pathLength}`;
-  path.style.strokeDashoffset = pathLength;
-
-  // Function to animate path based on scroll
-  function animatePath() {
-    if (!pathInView) return;
-
-    const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (-document.documentElement.clientHeight * .9);
-    const drawLength = pathLength * scrollPercentage;
-
-    path.style.strokeDashoffset = pathLength - drawLength;
+if (btnContainer) {
+  if (!welcomeWrapper) {
+    welcomeWrapper = document.createElement('div');
+    welcomeWrapper.id = 'welcomeWrapper';
+    welcomeWrapper.className = 'welcome-wrapper';
+    btnContainer.insertBefore(welcomeWrapper, logoutBtn || null);
   }
+  if (!welcomeSpan) {
+    welcomeSpan = document.createElement('span');
+    welcomeSpan.id = 'welcomeMsg';
+    welcomeWrapper.appendChild(welcomeSpan);
+  }
+  if (!roleSpan) {
+    roleSpan = document.createElement('span');
+    roleSpan.id = 'welcomeRole';
+    welcomeWrapper.appendChild(roleSpan);
+  }
+}
 
-  // Intersection Observer for path element
-  const pathObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      pathInView = entry.isIntersecting;
-      if (pathInView) {
-        animatePath(); // Initial call to set the correct state when the path enters view
-      }
-    });
-  });
+function setLoggedOut() {
+  if (welcomeSpan) welcomeSpan.textContent = '';
+  if (roleSpan) roleSpan.textContent = '';
+  if (logoutBtn)  logoutBtn.style.display = 'none';
+  if (loginBtn)   loginBtn.style.display  = 'inline-block';
+  if (signupBtn)  signupBtn.style.display = 'inline-block';
+}
 
-  pathObserver.observe(path);
+function formatRole(role) {
+  if (!role) return '';
+  return role.charAt(0).toUpperCase() + role.slice(1);
+}
 
-  // Scroll event listener
-  window.addEventListener('scroll', () => {
-    animatePath();
+function setLoggedIn(firstName, role) {
+  if (welcomeSpan) welcomeSpan.textContent = firstName ? `Welcome, ${firstName}!` : 'Welcome!';
+  if (roleSpan) roleSpan.textContent = formatRole(role);
+  if (logoutBtn)  logoutBtn.style.display = 'inline-block';
+  if (loginBtn)   loginBtn.style.display  = 'none';
+  if (signupBtn)  signupBtn.style.display = 'none';
+}
 
-    // Handle scroll-based transformations
-    handleScrollTransformations();
-  });
-});
+fetch('/api/me')
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(me => me.authenticated ? setLoggedIn(me.first_name, me.role) : setLoggedOut())
+  .catch(() => setLoggedOut());
 
-// Function to handle scroll-based transformations
-function handleScrollTransformations() {
-  const targets = document.querySelectorAll('.scroll');
-  targets.forEach(target => {
-    const rate = parseFloat(target.dataset.rate) || 0;
-    const rateX = parseFloat(target.dataset.ratex) || 0;
-    const rateY = parseFloat(target.dataset.ratey) || 0;
-    const pos = window.pageYOffset * rate;
-
-    if (target.dataset.direction === 'horizontal') {
-      target.style.transform = `translate3d(${pos}px, 0px, 0px)`;
-    } else {
-      const posX = window.pageYOffset * rateX;
-      const posY = window.pageYOffset * rateY;
-      target.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
+if (logoutBtn) {
+  logoutBtn.addEventListener('click', async () => {
+    try { await fetch('/api/logout', { method: 'POST' }); }
+    finally {
+      setLoggedOut();
+      window.location.href = 'Home.html';
     }
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  const scribble = document.getElementById('myPath');
-  const follower = document.getElementById('follower');
-  const pathDistance = scribble.getTotalLength();
-
-  // Set up the path's length and initial dash properties
-  scribble.style.strokeDasharray = pathDistance;
-  scribble.style.strokeDashoffset = pathDistance;
-
-  document.addEventListener("scroll", function() {
-      const scrollPosition = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const scrollPercentage = Math.min(scrollPosition / maxScroll, 1);
-      
-      const point = scribble.getPointAtLength(scrollPercentage * pathDistance);
-
-      // Update the follower position
-      follower.setAttribute('cx', point.x);
-      follower.setAttribute('cy', point.y);
-
-      // Update the path dash offset to reveal the path
-      scribble.style.strokeDashoffset = pathDistance - (scrollPercentage * pathDistance);
-  });
+  // ======== to here (end of new auth code) ========
 });
-var swiper = new Swiper(".mySwiper", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-
