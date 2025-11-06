@@ -279,7 +279,7 @@ function initGameLaunchers() {
   function resetAllTimers(messageFactory) {
     if (!activeButtons.size) return;
     activeButtons.forEach((btn) => {
-      const requiredSeconds = Number(btn.dataset.gameSeconds) || 300;
+      const requiredSeconds = Number(btn.dataset.gameSeconds) || 10;
       const remaining = typeof btn.__remainingSeconds === 'number'
         ? Math.max(0, Math.round(btn.__remainingSeconds))
         : requiredSeconds;
@@ -356,7 +356,7 @@ function initGameLaunchers() {
       clearButtonTimer(btn);
 
       const rawSeconds = parseInt(btn.dataset.gameSeconds, 10);
-      const durationSeconds = Number.isFinite(rawSeconds) && rawSeconds > 0 ? rawSeconds : 30;
+      const durationSeconds = Number.isFinite(rawSeconds) && rawSeconds > 0 ? rawSeconds : 10;
       const sessionId = newSessionId();
       let attemptLogged = true;
       try {

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="google-site-verification" content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8">
     </head>
-<body>
+<body class="explore-page">
     <header class="header" id="navbar">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -94,56 +94,87 @@
         </div>
     </section>   
     <div class="divideLine"></div>
-    <section id="What You Will Learn">
-        <div style="display: flex;align-items: center;justify-content: center;gap:50px; margin-top:200px;">
-            <div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
-            <div style="white-space: nowrap; color:white; font-size:40px; font-weight:bold;">MATH TOPICS</div>
-            <div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
+
+    <section class="explore-hero">
+        <div class="explore-hero__content">
+            <span class="explore-hero__eyebrow">Explore AppLearn</span>
+            <h1 class="explore-hero__title">Pick Your Next Learning Adventure</h1>
+            <p class="explore-hero__subtitle">
+                Every lesson combines a short video, an authentic scenario, and optional practice so you can master core math and science
+                concepts in about 15 minutes.
+            </p>
         </div>
-        <div class="grid-container-topic"> 
-            <div class="grid-item-topic grid-item-topic1">
-                <div class="learningTopic">
-                    <img class="learnImages" src="img/LinEqu.png">
-                    <a href="LinearEqu.html"><h4>Linear Equations</h4></a>
-                </div>
-            </div>
-            <div class="grid-item-topic grid-item-topic1">
-                <div class="learningTopic">
-                    <img class="learnImages" src="img/QuadEqu.jpg">
-                    <a href="QuadraticEqu.html"><h4>Quadratic Equation</h4></a>
-                </div>
-            </div>
-            <div class="grid-item-topic grid-item-topic1">
-                <div class="learningTopic">
-                    <img class="learnImages" src="img/Trig.jpg">
-                    <a href="Trig.html"><h4>Trigonometry</h4></a>
-                </div>
-            </div>
+    </section>
+
+    <section class="explore-section">
+        <div class="explore-section__header">
+            <h2 class="explore-section__title">Math Essentials</h2>
+            <p class="explore-section__subtitle">
+                Build confidence with algebra and trigonometry through stories that show how the numbers power real decisions.
+            </p>
         </div>
-        <!--
-        <h1 class="hr-lines">SCIENCE TOPICS</h1>
-        <div class="grid-container-topic">
-            <div class="grid-item-topic grid-item-topic1">
-                <div class="learningTopic">
-                    <img class="learnImages" src="img/ProjMot.jpg">
-                    <a href="ProjectileMot.html"><h4>Projectile Motion</h4></a>
-                </div>
-            </div>
-            <div class="grid-item-topic grid-item-topic1">
-                <div class="learningTopic">
-                    <img class="learnImages" src="img/WaveInter.png">
-                    <a href="WaveInterference.html"><h4>Wave Interference</h4></a>
-                </div>
-            </div>
-            <div class="grid-item-topic grid-item-topic1">
-                <div class="learningTopic">
-                    <img class="learnImages" src="img/PasLaw.jpg">
-                    <a href="PascalsLaw.html"><h4>Pascal's Law</h4></a>
-                </div>
-            </div>
+        <div class="explore-grid">
+            <article class="explore-card">
+                <img class="explore-card__media" src="img/LinEqu.png" alt="Students working on linear equations">
+                <h3 class="explore-card__title">Linear Equations</h3>
+                <p class="explore-card__text">
+                    Model revenue, goals, and constraints in creative careers using slope-intercept intuition.
+                </p>
+                <a class="explore-card__link" href="LinearEqu.html">Start lesson</a>
+            </article>
+            <article class="explore-card">
+                <img class="explore-card__media" src="img/QuadEqu.jpg" alt="Quadratic graph illustration">
+                <h3 class="explore-card__title">Quadratic Equations</h3>
+                <p class="explore-card__text">
+                    Explore parabolas by planning product launches, managing budgets, and optimizing creative projects.
+                </p>
+                <a class="explore-card__link" href="QuadraticEqu.html">Start lesson</a>
+            </article>
+            <article class="explore-card">
+                <img class="explore-card__media" src="img/Trig.jpg" alt="Trigonometric function graph">
+                <h3 class="explore-card__title">Trigonometry</h3>
+                <p class="explore-card__text">
+                    See sine, cosine, and tangent in action while designing stages, mapping routes, and balancing forces.
+                </p>
+                <a class="explore-card__link" href="Trig.html">Start lesson</a>
+            </article>
         </div>
-        -->
-    </section>   
+    </section>
+
+    <section class="explore-section">
+        <div class="explore-section__header">
+            <h2 class="explore-section__title">Physics in Motion</h2>
+            <p class="explore-section__subtitle">
+                Understand the mechanics behind sports, engineering, and medicine with quick, visual explanations.
+            </p>
+        </div>
+        <div class="explore-grid">
+            <article class="explore-card">
+                <img class="explore-card__media" src="img/ProjMot.jpg" alt="Projectile motion arc">
+                <h3 class="explore-card__title">Projectile Motion</h3>
+                <p class="explore-card__text">
+                    Track arcs, hang-time, and launch angles to master the math powering every great shot or throw.
+                </p>
+                <a class="explore-card__link" href="ProjectileMot.html">Start lesson</a>
+            </article>
+            <article class="explore-card">
+                <img class="explore-card__media" src="img/WaveInter.png" alt="Waves overlapping">
+                <h3 class="explore-card__title">Wave Interference</h3>
+                <p class="explore-card__text">
+                    Learn how sound, light, and water waves combine to amplify or cancel signals in daily life.
+                </p>
+                <a class="explore-card__link" href="WaveInterference.html">Start lesson</a>
+            </article>
+            <article class="explore-card">
+                <img class="explore-card__media" src="img/PasLaw.jpg" alt="Hydraulic lift demonstrating Pascal's law">
+                <h3 class="explore-card__title">Pascal's Law</h3>
+                <p class="explore-card__text">
+                    See how hydraulic pressure multiplies forces to power brakes, lifts, and medical devices.
+                </p>
+                <a class="explore-card__link" href="PascalsLaw.html">Start lesson</a>
+            </article>
+        </div>
+    </section>
     <footer class="footer-distributed border-top " style="background-color: #9b1f17;">
         <div class="footer-left">
             <h3><img src="./img/App-Learn Wordmark V1.png" alt="Company Logo" style="height: 90px; width: 300px;"></h3>

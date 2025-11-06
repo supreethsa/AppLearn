@@ -11,26 +11,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <meta content="google-site-verification=Vg-8DmrfXh_lOY8Ys2n_HG9DijL0fi0xH69efb3Bjf8" name="google-site-verification"/>
 </head>
-<body>
+<body class="linear-page">
 <header class="header" id="navbar">
-<style>
-            .grid-container-topic{
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
-                padding-top: 15vh;
-                padding-bottom: 5vh;
-                margin-bottom: 65vh;
-                margin-left:20px;
-                margin-right:20px;
-            }
-            .learningTopic h6{
-                font-size: 20px;
-                padding-top: 10px;
-                padding-left:40px;
-                padding-right:40px;
-            }
-        </style>
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
 <div class="container-fluid">
 <!-- Toggler Button for Mobile View -->
@@ -66,7 +48,7 @@
 </div>
 </div>
 <div class="button-container">
-<a class="btn btn-dark btn-lg" href="sign_up.html" id="loginNavBtn">Login</a>
+<a class="btn btn-dark btn-lg" href="sign_in.html" id="loginNavBtn">Login</a>
 <a class="btn btn-dark btn-lg" href="StudentorTeacher.html" id="signupNavBtn">Sign-Up</a>
 <button class="btn btn-dark btn-lg" id="logoutNavBtn" style="display:none;">Logout</button>
 </div>
@@ -106,44 +88,62 @@
 </div>
 </section>
 <div class="divideLine"></div>
-<section id="What You Will Learn">
-<div style="display: flex;align-items: center;justify-content: center;gap:50px; margin-top:200px;">
-<div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
-<div style="white-space: nowrap; color:white; font-size:40px; font-weight:bold;">LINEAR EQUATIONS</div>
-<div style="flex-grow: 1;height: 2px;background-color: #9b1f17;"></div>
-</div>
-<div class="grid-container-topic1">
-<div class="grid-item-topic">
-<div class="learningTopic">
-<video class="learnImages1 trackable-video" controls="" data-video-id="linear-artist" src="img/Linear_Eqn_System-Artist.mp4"></video>
-<u><h4>Artist Scenario</h4></u>
-<h6>Can you help the artist find the correct price point for his artwork?</h6>
-</div>
-</div>
-<div class="grid-item-topic">
-<div class="learningTopic">
-<video class="learnImages1 trackable-video" controls="" data-video-id="linear-youtuber" src="img/LinearEqn-YouTuber.MP4"></video>
-                    <u><h4>Youtuber Scenario</h4></u>
-                    <h6>Can you help the YouTuber hit the monthly goal of channel views?</h6>
-                    <button type="button" class="game-launch-btn" data-game-id="linear-youtuber-game" data-video-id="linear-youtuber" data-game-seconds="30" data-game-url="https://edg22.itch.io/youtuber-simulator">Play Game</button>
-                    <small class="game-launch-status" data-target-game="linear-youtuber-game"></small>
-</div>
-</div>
-<div class="grid-item-topic">
-<div class="learningTopic">
-<video class="learnImages1 trackable-video" controls="" data-video-id="linear-athlete" src="img/Linear_Eqn_System-Athlete.mp4"></video>
-<u><h4>Athlete Scenario</h4></u>
-<h6>Can you help the athlete optimize his training routine?</h6>
-</div>
-</div>
-<div class="grid-item-topic">
-<div class="learningTopic">
-<video class="learnImages1 trackable-video" controls="" data-video-id="linear-nurse" src="img/Linear_Eqn_System-Nurse.mp4"></video>
-<u><h4>Nurse Scenario</h4></u>
-<h6>Can you help the nurse determine the right medicine dosage?</h6>
-</div>
-</div>
-</div>
+<section id="what-you-will-learn" class="lesson-hero">
+  <div class="lesson-hero__content">
+    <span class="lesson-hero__eyebrow">Linear Equations</span>
+    <h1 class="lesson-hero__title">Real Stories That Make Algebra Feel Intuitive</h1>
+    <p class="lesson-hero__subtitle">
+      Explore short, high-impact scenarios that translate slope and intercepts into everyday decisions for artists,
+      athletes, nurses, and creators. Watch at your own pace, then apply what you learn with quick reflections and mini-games.
+    </p>
+  </div>
+</section>
+
+<section class="lesson-section">
+  <div class="lesson-section__header">
+    <h2 class="lesson-section__title">Choose your scenario</h2>
+    <p class="lesson-section__subtitle">
+      Each storyline covers the same algebra foundations through a different lens, so pick the one that resonates most and start solving.
+    </p>
+  </div>
+
+  <div class="lesson-grid">
+    <article class="lesson-card">
+      <video class="lesson-card__media trackable-video" controls data-video-id="linear-artist" src="img/Linear_Eqn_System-Artist.mp4"></video>
+      <h3 class="lesson-card__title">Artist Scenario</h3>
+      <p class="lesson-card__text">
+        Help a digital artist price commissioned work by modeling revenue, expenses, and the break-even point with a linear equation.
+      </p>
+    </article>
+
+    <article class="lesson-card">
+      <video class="lesson-card__media trackable-video" controls data-video-id="linear-youtuber" src="img/LinearEqn-YouTuber.MP4"></video>
+      <h3 class="lesson-card__title">YouTuber Scenario</h3>
+      <p class="lesson-card__text">
+        Support a creator planning channel growth by balancing sponsorship deals and ad revenue targets using linear relationships.
+      </p>
+      <button type="button" class="game-launch-btn" data-game-id="linear-youtuber-game" data-video-id="linear-youtuber" data-game-seconds="10" data-game-url="https://edg22.itch.io/youtuber-simulator">
+        Play Game
+      </button>
+      <small class="game-launch-status" data-target-game="linear-youtuber-game"></small>
+    </article>
+
+    <article class="lesson-card">
+      <video class="lesson-card__media trackable-video" controls data-video-id="linear-athlete" src="img/Linear_Eqn_System-Athlete.mp4"></video>
+      <h3 class="lesson-card__title">Athlete Scenario</h3>
+      <p class="lesson-card__text">
+        Coach an athlete who needs to adjust training time and rest days to hit peak performance without breaking the schedule.
+      </p>
+    </article>
+
+    <article class="lesson-card">
+      <video class="lesson-card__media trackable-video" controls data-video-id="linear-nurse" src="img/Linear_Eqn_System-Nurse.mp4"></video>
+      <h3 class="lesson-card__title">Nurse Scenario</h3>
+      <p class="lesson-card__text">
+        Partner with a nurse calculating medication dosages by modeling patient weight, dosage per kilogram, and safe limits.
+      </p>
+    </article>
+  </div>
 </section>
 <footer class="footer-distributed border-top" style="background-color: #9b1f17;">
 <div class="footer-left">
